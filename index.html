@@ -427,7 +427,7 @@
 const D=window.TPU_DATA,$=id=>document.getElementById(id);
 const groupNames={system:'时钟 / 复位 / DFT',ahb:'CPU · AHB-Lite',regbus:'AHB ↔ REG_MAP',crgcfg:'REG → CRG',taskcfg:'REG → CTRL',staticcfg:'尺寸 / 精度',weight:'权重预装载',sync:'同步控制',rx:'AXI 输入',rxwrite:'输入 FIFO 写端',rxread:'输入 FIFO 读端',skew:'Skew 数据',vector:'原始向量 LAST',result:'SA 结果',lastfeedback:'SA 完成反馈',txread:'输出 FIFO 读端',tx:'AXI 输出',status:'SYS 报告直接回读',monitor:'顶层监测',doneclear:'DONE 清除请求 / 应答'};
 const pages=['report','interfaces','registers','sources','audit'];
-const anchors=['architecture','startup','weights','dataflow','compute','reporting'];
+const anchors=['architecture','startup','weights','dataflow','compute','reporting','smoke-waveform'];
 let view='external',zoom=.65,downloadURL,exportURL;
 function showPage(id,hash=true){if(!pages.includes(id))id='report';document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('[data-page]').forEach(b=>{b.classList.toggle('active',b.dataset.page===id);b.setAttribute('aria-current',b.dataset.page===id?'page':'false');});if(hash)history.replaceState(null,'','#'+id);window.scrollTo(0,0);}
 document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
