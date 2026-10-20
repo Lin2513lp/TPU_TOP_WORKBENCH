@@ -1,4 +1,4 @@
-# Functional-mode CDC intent. Units: ns. No CDC paths are waived.
+# Functional-mode CDC intent for direct integration. Units: ns. No CDC paths are waived.
 current_design tpu_top
 # Different domains deliberately model AHB and SYS as asynchronous.
 clock -name sys_clk -domain SYS -period 2.5 -edge {0 1.25}
@@ -45,5 +45,7 @@ output -name wr_tid -clock sys_clk
 output -name wr_tdest -clock sys_clk
 output -name wr_tuser -clock sys_clk
 
-# Intentionally no quasi_static on H/W/mode, no false paths on mailboxes,
+# No quasi_static on H/W/mode, no false-path suppression of direct reports,
 # and no forced constants on CRG enable/bypass. Review those real crossings.
+# Existing CTRL/SA CDC handles START/EN/LOCK under the software stability contract.
+# SYS report buses connect directly to reg_list; functional smoke is not CDC signoff.

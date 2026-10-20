@@ -1,12 +1,12 @@
 {
   "workbench": "TPU_TOP_WORKBENCH.html",
-  "workbenchSha256": "5d200de5c56173586842572b053babd0d35bcae3a90e28552ca82f980a305700",
-  "revision": "0.4",
+  "workbenchSha256": "12bfdf6d0350a4468cefdb1b6f5718367d02662f0fa1dfbba09111962536ab99",
+  "revision": "0.5",
   "sources": [
     {
       "name": "TPU_TOP/rtl/tpu_top.sv",
-      "sha256": "61c8e1423390481b55cbd7d5f23d8397504a92d559f162e0ce06260f6211684d",
-      "bytes": 10631
+      "sha256": "b19519534898f090d677758cc35dc1590159a61fcd4b4a428d2804fd78a607ff",
+      "bytes": 8510
     },
     {
       "name": "AHB_SLAVE/ahb_slave.sv",
@@ -64,24 +64,9 @@
       "bytes": 5577
     },
     {
-      "name": "TPU_TOP/rtl/tpu_command_bridge.sv",
-      "sha256": "938179ae4d59cffa2a562785c815b8e3f20fbfd4785712abf99b39199bc65725",
-      "bytes": 3565
-    },
-    {
-      "name": "TPU_TOP/rtl/tpu_task_bridge.sv",
-      "sha256": "79e2b8f604984ee5f0435c796eadecd2d6f6aeebbea1738273ab13fcc84453a5",
-      "bytes": 7926
-    },
-    {
       "name": "sa/rtl/pe_mp/fp2fix.v",
       "sha256": "0ebd6e23b9e22b2ee633f023bf707aeaf88af0eab3c9be36c27f62cf24078293",
       "bytes": 8541
-    },
-    {
-      "name": "TPU_CTRL/rtl/ahb_slave_regmap.sv",
-      "sha256": "6d4172a524739f3bd0cf31f1a087b710d21f731359ff97cd7671cbd6cc811386",
-      "bytes": 4221
     },
     {
       "name": "sa/rtl/sa_ctrl.sv",
@@ -119,26 +104,6 @@
       "bytes": 601
     },
     {
-      "name": "TPU_CTRL/tb/tb_tpu_done_clear.sv",
-      "sha256": "e9dec7e31656683316da24f7a1319153f19354fe65197b78eef8e572fbab1826",
-      "bytes": 6749
-    },
-    {
-      "name": "TPU_CTRL/tb/tpu_ctrl_assertions.sv",
-      "sha256": "438b3b0e379f22dd5fc86e478f5ca983f680fca0f7af611081efefe493b30069",
-      "bytes": 1822
-    },
-    {
-      "name": "TPU_CTRL/tb/reg_list_assertions.sv",
-      "sha256": "d79f42bf96c1b474fb8e43f1527ba709336b62ea086946a5d78da202d9e55473",
-      "bytes": 2150
-    },
-    {
-      "name": "TPU_CTRL/rtl/tpu_compute_path.sv",
-      "sha256": "468f009bdef552b1f17b41a6fbf5b22774350fe1aa35e36ffd82556784174711",
-      "bytes": 2655
-    },
-    {
       "name": "sa/rtl/pe_mp/fp32_adder.v",
       "sha256": "be3d1061521a02963f44f965b6034e90f9fda616e26379ab0ef536468d2eed19",
       "bytes": 8062
@@ -170,8 +135,8 @@
     },
     {
       "name": "TPU_TOP/rtl/filelist.f",
-      "sha256": "af436b8e989dd0e13f4a41d587dbec36830876e415e92af73878543a86b5f444",
-      "bytes": 878
+      "sha256": "aefb6ebd64b7b7cfe3798a6bea325066dc243dc6cb675e9a3e8ccb2b198bf4d7",
+      "bytes": 827
     },
     {
       "name": "TPU_TOP/Makefile",
@@ -179,39 +144,24 @@
       "bytes": 7822
     },
     {
-      "name": "TPU_TOP/docs/VM_EDA_使用说明.md",
-      "sha256": "6d29d9fea5a4d08ab445388b67839ce64e945d0b32bd346bc9dae1ca283dd596",
-      "bytes": 2055
+      "name": "TPU_TOP/docs/TOP_INTEGRATION.md",
+      "sha256": "040fc1ac0577fae8fdf70c4f97928b00e82c2eb9a470b45639ea2a10e62f3105",
+      "bytes": 6936
     },
     {
       "name": "TPU_TOP/docs/CDC_使用说明.md",
-      "sha256": "d3e4536ddf43304b97ca01930c3bde4b7cd220cab7046d4981bbbb321d3dce9a",
-      "bytes": 1327
+      "sha256": "3c34a4d71e2a3407f0464283b6e4c5d319482b587ac138f97052bdc46a8db1d3",
+      "bytes": 2386
     },
     {
       "name": "TPU_TOP/tpu_top_cdc.sgdc",
-      "sha256": "897b45f531374e76dd3d72bc83e79e5d8b732bf99b433762d2105b94c5683aed",
-      "bytes": 1990
-    },
-    {
-      "name": "TPU_TOP/tb/SMOKE_GUIDE.md",
-      "sha256": "a1c83ad58e066091ae1432ea85e900ad6be9c1431b0ec820b414f14ea8dae648",
-      "bytes": 2130
-    },
-    {
-      "name": "TPU_TOP/tb/tb_tpu_task_bridge.sv",
-      "sha256": "8d1aacaa24a48331aca7c6d5c9cfbb59aa2207ea76a444a2dd8ae9d7d041efe0",
-      "bytes": 7736
-    },
-    {
-      "name": "TPU_TOP/tb/tb_tpu_top.sv",
-      "sha256": "8f10bbc3e0534c0df7cacae16306f81f77a72df587e87a87017496f790676eef",
-      "bytes": 13787
+      "sha256": "829f5ce8589a032e154cff531a6a9d37cd721a966b2418300e14ec7c6f389409",
+      "bytes": 2185
     },
     {
       "name": "TPU_TOP/tb/tb_tpu_top_smoke.sv",
-      "sha256": "96f0a8770e25a7e59546a0eb3cce41a26c0a1afe9c041eaf9d80a3dffcfef270",
-      "bytes": 9099
+      "sha256": "43f0f372839e8637232918cbbeafd27310c2b07a90e3e5fa7fbc03527c6a380f",
+      "bytes": 10839
     }
   ]
 }

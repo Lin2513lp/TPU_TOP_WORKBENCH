@@ -24,6 +24,4 @@
 ../TPU_CTRL/rtl/tpu_ctrl_sync.sv
 ../TPU_CTRL/rtl/tpu_ctrl_skew.sv
 ../TPU_CTRL/rtl/tpu_ctrl.sv
-rtl/tpu_command_bridge.sv
-rtl/tpu_task_bridge.sv
 rtl/tpu_top.sv
