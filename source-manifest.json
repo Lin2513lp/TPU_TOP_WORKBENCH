@@ -1,0 +1,217 @@
+{
+  "workbench": "TPU_TOP_WORKBENCH.html",
+  "workbenchSha256": "5d200de5c56173586842572b053babd0d35bcae3a90e28552ca82f980a305700",
+  "revision": "0.4",
+  "sources": [
+    {
+      "name": "TPU_TOP/rtl/tpu_top.sv",
+      "sha256": "61c8e1423390481b55cbd7d5f23d8397504a92d559f162e0ce06260f6211684d",
+      "bytes": 10631
+    },
+    {
+      "name": "AHB_SLAVE/ahb_slave.sv",
+      "sha256": "1b2bbdde4502c55861759345825ab27f0b13cedb77fedadbb1c0347556ab013a",
+      "bytes": 8758
+    },
+    {
+      "name": "TPU_CTRL/rtl/reg_list.sv",
+      "sha256": "b02a7f12b775db51bba790b69aaee33b26b09ee4b55774e2cbe973d287fa6f0b",
+      "bytes": 14872
+    },
+    {
+      "name": "TPU_CRG/rtl/tpu_crg.sv",
+      "sha256": "5ea589f7531e6c871b1522c97605e6565a4fbc077efbbc0f018f4f7d242a6e02",
+      "bytes": 2006
+    },
+    {
+      "name": "AXI_TOP/AXI_M_TOP/rtl/AXI_M_TOP.sv",
+      "sha256": "8a1190f446b3474894acb827321d6f7ae45b32dddf6de2ffacb8299454d89438",
+      "bytes": 2076
+    },
+    {
+      "name": "AXI_TOP/AXI_M_TOP/rtl/axi2fifo.sv",
+      "sha256": "e06063c4abecbb5c33e83d7786083628c2ff82e6d0f47dd536789bbbe7679524",
+      "bytes": 2974
+    },
+    {
+      "name": "AXI_TOP/AXI_M_TOP/rtl/fifo_in.sv",
+      "sha256": "6179df997e928b25a4b2e37f30cd309acf32ffff4dff53a6c88b03725ad1eea1",
+      "bytes": 3333
+    },
+    {
+      "name": "TPU_CTRL/rtl/tpu_ctrl.sv",
+      "sha256": "7ce759b67c37c3ae85ef51af9f37e20e93b5c3268a034de54f0d0fdda8f02f95",
+      "bytes": 7871
+    },
+    {
+      "name": "sa/rtl/sa_top.sv",
+      "sha256": "4c01337a9f4e0e2ea8d2c5bc13e1268ee8284e5a71c89da6e46a96bdb95b7dba",
+      "bytes": 5033
+    },
+    {
+      "name": "AXI_TOP/AXI_S_TOP/rtl/AXI_S_TOP.sv",
+      "sha256": "772364dea2377d6e05ca0fcc8c5724c125cd8cf9182ee2781d375bf7522e299b",
+      "bytes": 2373
+    },
+    {
+      "name": "AXI_TOP/AXI_S_TOP/rtl/fifo_out.sv",
+      "sha256": "07a98d3311f3b407317fb6a242949f4f081b866d1a3ada7e44bbb8354aa3576d",
+      "bytes": 3482
+    },
+    {
+      "name": "AXI_TOP/AXI_S_TOP/rtl/fifo2axi.sv",
+      "sha256": "bf4dc6bc445cb658844a126463c1708272201fb13fb2c08a46330a330bf9dd7c",
+      "bytes": 5577
+    },
+    {
+      "name": "TPU_TOP/rtl/tpu_command_bridge.sv",
+      "sha256": "938179ae4d59cffa2a562785c815b8e3f20fbfd4785712abf99b39199bc65725",
+      "bytes": 3565
+    },
+    {
+      "name": "TPU_TOP/rtl/tpu_task_bridge.sv",
+      "sha256": "79e2b8f604984ee5f0435c796eadecd2d6f6aeebbea1738273ab13fcc84453a5",
+      "bytes": 7926
+    },
+    {
+      "name": "sa/rtl/pe_mp/fp2fix.v",
+      "sha256": "0ebd6e23b9e22b2ee633f023bf707aeaf88af0eab3c9be36c27f62cf24078293",
+      "bytes": 8541
+    },
+    {
+      "name": "TPU_CTRL/rtl/ahb_slave_regmap.sv",
+      "sha256": "6d4172a524739f3bd0cf31f1a087b710d21f731359ff97cd7671cbd6cc811386",
+      "bytes": 4221
+    },
+    {
+      "name": "sa/rtl/sa_ctrl.sv",
+      "sha256": "26221e2528b85905b3f5421411f4ee9359f44dba93298a1e15dec92855c1791d",
+      "bytes": 5983
+    },
+    {
+      "name": "sa/rtl/output_collector.sv",
+      "sha256": "af5533d9cfde001ea51df1e2092ef95fe96471dae236a0554e091c4de670ec26",
+      "bytes": 5749
+    },
+    {
+      "name": "sa/rtl/pe_array_16x16.sv",
+      "sha256": "affc351187bc3714e9bbfd6e6189cd56362710d925bf88bec5f5296dff5f0ef8",
+      "bytes": 7893
+    },
+    {
+      "name": "TPU_CRG/rtl/sys_clk_crg.sv",
+      "sha256": "039f8f02c2b45a9d9750f84807822313e401e3680ca261bcb4f73308af211e9b",
+      "bytes": 1595
+    },
+    {
+      "name": "TPU_CRG/rtl/pe_crg.sv",
+      "sha256": "da80b213e5ed4d99797679576fada118cded13075f6e062ffeaf96c4305e8ff8",
+      "bytes": 1690
+    },
+    {
+      "name": "TPU_CRG/rtl/rst_sync.sv",
+      "sha256": "7e4e783a208c1f52c2f4cd1c46a27178e7b1a94e0e0012d0811dc0e60fa141a4",
+      "bytes": 1172
+    },
+    {
+      "name": "TPU_CRG/rtl/crg_icg.sv",
+      "sha256": "10ec2716b49a379630a537bf9233f7e775ce902115c10cda92fc7197701ce0d0",
+      "bytes": 601
+    },
+    {
+      "name": "TPU_CTRL/tb/tb_tpu_done_clear.sv",
+      "sha256": "e9dec7e31656683316da24f7a1319153f19354fe65197b78eef8e572fbab1826",
+      "bytes": 6749
+    },
+    {
+      "name": "TPU_CTRL/tb/tpu_ctrl_assertions.sv",
+      "sha256": "438b3b0e379f22dd5fc86e478f5ca983f680fca0f7af611081efefe493b30069",
+      "bytes": 1822
+    },
+    {
+      "name": "TPU_CTRL/tb/reg_list_assertions.sv",
+      "sha256": "d79f42bf96c1b474fb8e43f1527ba709336b62ea086946a5d78da202d9e55473",
+      "bytes": 2150
+    },
+    {
+      "name": "TPU_CTRL/rtl/tpu_compute_path.sv",
+      "sha256": "468f009bdef552b1f17b41a6fbf5b22774350fe1aa35e36ffd82556784174711",
+      "bytes": 2655
+    },
+    {
+      "name": "sa/rtl/pe_mp/fp32_adder.v",
+      "sha256": "be3d1061521a02963f44f965b6034e90f9fda616e26379ab0ef536468d2eed19",
+      "bytes": 8062
+    },
+    {
+      "name": "sa/rtl/pe_mp/fp32_multi.v",
+      "sha256": "79a83d9179c30b54a73195bb1195df5477449b65d234b90e46aaf45843bd9da5",
+      "bytes": 11114
+    },
+    {
+      "name": "sa/rtl/pe_mp/fix2fp.v",
+      "sha256": "fbe9ed0e6a45c1aafc4165df6efed185418942b58573248bfa6d1f0537e7ac72",
+      "bytes": 7193
+    },
+    {
+      "name": "sa/rtl/pe_mp/PE_MP_v1.v",
+      "sha256": "215c2b8601547f0cc03be317cbbb98e2eab048d0f8985bd37702c3484abfb447",
+      "bytes": 10610
+    },
+    {
+      "name": "TPU_CTRL/rtl/tpu_ctrl_sync.sv",
+      "sha256": "62ff5530ea9241dd6c009b72ec42812c92904e5a18ab2364d9a3cded95ff525e",
+      "bytes": 1037
+    },
+    {
+      "name": "TPU_CTRL/rtl/tpu_ctrl_skew.sv",
+      "sha256": "811490b07902c26011e0ffd5da27b541d2ed0d64b4c7494164092cebe7257f32",
+      "bytes": 5102
+    },
+    {
+      "name": "TPU_TOP/rtl/filelist.f",
+      "sha256": "af436b8e989dd0e13f4a41d587dbec36830876e415e92af73878543a86b5f444",
+      "bytes": 878
+    },
+    {
+      "name": "TPU_TOP/Makefile",
+      "sha256": "fe710ebc18955d083ed4f3957ebd432acfe0ba6c1d79fa29c33baa31ece6e903",
+      "bytes": 7822
+    },
+    {
+      "name": "TPU_TOP/docs/VM_EDA_使用说明.md",
+      "sha256": "6d29d9fea5a4d08ab445388b67839ce64e945d0b32bd346bc9dae1ca283dd596",
+      "bytes": 2055
+    },
+    {
+      "name": "TPU_TOP/docs/CDC_使用说明.md",
+      "sha256": "d3e4536ddf43304b97ca01930c3bde4b7cd220cab7046d4981bbbb321d3dce9a",
+      "bytes": 1327
+    },
+    {
+      "name": "TPU_TOP/tpu_top_cdc.sgdc",
+      "sha256": "897b45f531374e76dd3d72bc83e79e5d8b732bf99b433762d2105b94c5683aed",
+      "bytes": 1990
+    },
+    {
+      "name": "TPU_TOP/tb/SMOKE_GUIDE.md",
+      "sha256": "a1c83ad58e066091ae1432ea85e900ad6be9c1431b0ec820b414f14ea8dae648",
+      "bytes": 2130
+    },
+    {
+      "name": "TPU_TOP/tb/tb_tpu_task_bridge.sv",
+      "sha256": "8d1aacaa24a48331aca7c6d5c9cfbb59aa2207ea76a444a2dd8ae9d7d041efe0",
+      "bytes": 7736
+    },
+    {
+      "name": "TPU_TOP/tb/tb_tpu_top.sv",
+      "sha256": "8f10bbc3e0534c0df7cacae16306f81f77a72df587e87a87017496f790676eef",
+      "bytes": 13787
+    },
+    {
+      "name": "TPU_TOP/tb/tb_tpu_top_smoke.sv",
+      "sha256": "96f0a8770e25a7e59546a0eb3cce41a26c0a1afe9c041eaf9d80a3dffcfef270",
+      "bytes": 9099
+    }
+  ]
+}
