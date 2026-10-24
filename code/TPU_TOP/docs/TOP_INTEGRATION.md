@@ -1,6 +1,6 @@
 # TPU_TOP 直连集成说明
 
-当前结构更新于 2026-10-20。TOP 保留既有模块接口，直接连接现有代码。
+当前结构更新于 2026-10-24。TOP 保留既有模块接口，直接连接现有代码。
 
 ## 层级与数据路径
 
@@ -16,7 +16,7 @@ rtl/tpu_top.sv 保留36个对外端口：6个时钟/复位/DFT、12个AHB、18�
 
 顶层不再增加命令桥、报告桥、配置写屏蔽、忙状态管理或自动开钟保持。工作台展示七个直接实例及四个AXI内部子模块，共11个模块；完整逐端口连接由TOP_CONNECTIVITY.md自动生成。
 
-lane0仍对应bits[31:0]。SA的vector_in_vld接FIFO读使能，vector_in_last接fifo_in_re && fifo_in_rd_dat_last。CTRL的SA完成反馈为dat_out_vld && dat_out_last，与AXI最后一拍被接收是不同边界。
+lane0仍对应bits[31:0]。SA只通过既有dat_in_a、dat_in_vld、dat_in_last接收CTRL的Skew输出；不增加原始FIFO有效或LAST输入，TOP也不生成这类旁路标记。包内必须连续输入。SA根据共享VALID起点与物理Skew LAST，在内部延后15拍恢复连续向量边界，并暂存PE结果15拍后输出完整波前；不能从共享VALID还原任意包内气泡。CTRL的SA完成反馈仍为dat_out_vld && dat_out_last，与AXI最后一拍被接收是不同边界。
 
 ## 沿用原有CDC
 

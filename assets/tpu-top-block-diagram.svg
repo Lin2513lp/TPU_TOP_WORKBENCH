@@ -5,7 +5,7 @@
 <rect width="3200" height="3280" fill="#f8faff"/><rect width="3200" height="1080" fill="url(#grid)"/>
 <text x="64" y="64" class="title">TPU_TOP · SYSTEM BLOCK DIAGRAM</text>
 <text x="64" y="101" class="sub">16 × 16 SA · 512-bit AXI-Stream · AHB Register Map · 64 PE clock groups</text>
-<text x="3135" y="65" text-anchor="end" class="sub">Rev 0.5 / 2026-10-20</text>
+<text x="3135" y="65" text-anchor="end" class="sub">Rev 0.6 / 2026-10-24</text>
 <g class="block" data-module="external"><rect x="64" y="175" width="355" height="155" rx="12" class="box " style="stroke:#1d4ed8"/><rect x="64" y="175" width="7" height="155" rx="3" fill="#1d4ed8"/><text x="86" y="213" class="block-title">CPU / AHB HOST</text>
 <text x="86" y="248" class="detail">100 MHz · 常开</text>
 <text x="86" y="277" class="detail">HSEL 基址译码位于外部</text>
@@ -62,8 +62,8 @@
 <g class="block" data-module="sa_top"><rect x="1800" y="575" width="510" height="250" rx="12" class="box " style="stroke:#0891b2"/><rect x="1800" y="575" width="7" height="250" rx="3" fill="#0891b2"/><text x="1822" y="613" class="block-title">SA_TOP</text>
 <text x="1822" y="648" class="detail">SA_CTRL + 16 × 16 PE</text>
 <text x="1822" y="677" class="detail">OUTPUT_COLLECTOR</text>
-<text x="1822" y="706" class="detail">原始向量valid/last独立输入</text>
-<text x="1822" y="735" class="detail">32bit × 16 波前输出</text>
+<text x="1822" y="706" class="detail">仅既有Skew数据 / VALID / LAST</text>
+<text x="1822" y="735" class="detail">SA内部暂存15拍后输出波前</text>
 </g>
 <rect x="2440" y="518" width="530" height="335" rx="15" fill="#f0fbf5" stroke="#059669" stroke-width="2" stroke-dasharray="10 6"/><text x="2460" y="548" class="detail">AXI_S_TOP · FIFO 位于包装内</text>
 <g class="block" data-module="fifo_out"><rect x="2470" y="575" width="470" height="105" rx="12" class="box " style="stroke:#059669"/><rect x="2470" y="575" width="7" height="105" rx="3" fill="#059669"/><text x="2492" y="613" class="block-title">fifo_out</text>
@@ -80,19 +80,17 @@
 <rect x="1014" y="729" width="60" height="29" rx="4" fill="#f8faff"/><text x="1020" y="750" class="detail" style="fill:#0891b2">B10 ↔</text>
 <path d="M1595 640H1800" class="wire" stroke="#0891b2" />
 <rect x="1631" y="599" width="60" height="29" rx="4" fill="#f8faff"/><text x="1637" y="620" class="detail" style="fill:#0891b2">B11 →</text>
-<path d="M1060 770V887H1980V825" class="wire" stroke="#0891b2" />
-<rect x="1214" y="854" width="348" height="29" rx="4" fill="#f8faff"/><text x="1220" y="875" class="detail" style="fill:#0891b2">B10(RE) + B12(LAST) → SA 原始令牌</text>
 <path d="M2310 620H2470" class="wire" stroke="#059669" />
-<rect x="2334" y="579" width="60" height="29" rx="4" fill="#f8faff"/><text x="2340" y="600" class="detail" style="fill:#059669">B13</text>
+<rect x="2334" y="579" width="60" height="29" rx="4" fill="#f8faff"/><text x="2340" y="600" class="detail" style="fill:#059669">B12</text>
 <path d="M2050 825V940H1370V825" class="wire" stroke="#059669" />
-<rect x="1444" y="905" width="504" height="29" rx="4" fill="#f8faff"/><text x="1450" y="926" class="detail" style="fill:#059669">B14 · SA valid ∧ last → CTRL.data_out_last</text>
+<rect x="1444" y="905" width="504" height="29" rx="4" fill="#f8faff"/><text x="1450" y="926" class="detail" style="fill:#059669">B13 · SA valid ∧ last → CTRL.data_out_last</text>
 <path d="M2700 680V720" class="wire" stroke="#059669" marker-start="url(#arr)"/>
-<rect x="2717" y="689" width="60" height="29" rx="4" fill="#f8faff"/><text x="2723" y="710" class="detail" style="fill:#059669">B15 ↔</text>
+<rect x="2717" y="689" width="60" height="29" rx="4" fill="#f8faff"/><text x="2723" y="710" class="detail" style="fill:#059669">B14 ↔</text>
 <g class="block" data-module="external"><rect x="2440" y="965" width="530" height="105" rx="12" class="box " style="stroke:#059669"/><rect x="2440" y="965" width="7" height="105" rx="3" fill="#059669"/><text x="2462" y="1003" class="block-title">AXI TX / wr_*</text>
 <text x="2462" y="1038" class="detail">512bit结果 · wr_tvalid ∧ wr_tready</text>
 </g>
 <path d="M2820 825V965" class="wire" stroke="#059669" marker-start="url(#arr)"/>
-<rect x="2834" y="895" width="60" height="29" rx="4" fill="#f8faff"/><text x="2840" y="916" class="detail" style="fill:#059669">B16 ↔</text>
+<rect x="2834" y="895" width="60" height="29" rx="4" fill="#f8faff"/><text x="2840" y="916" class="detail" style="fill:#059669">B15 ↔</text>
 <path d="M1590 345H1735V495H1120V565H1150" class="wire" stroke="#1d4ed8" />
 <rect x="1294" y="464" width="180" height="29" rx="4" fill="#f8faff"/><text x="1300" y="485" class="detail" style="fill:#1d4ed8">B05 · 静态尺寸 / 精度</text>
 <path d="M1735 495V740H1800" class="wire" stroke="#1d4ed8" />
@@ -108,19 +106,19 @@
 <path d="M2270 432V575" class="wire" stroke="#7c3aed" />
 <path d="M2725 432V575" class="wire" stroke="#7c3aed" />
 <g class="block" data-module="status"><rect x="64" y="965" width="640" height="105" rx="12" class="box " style="stroke:#b7791f"/><rect x="64" y="965" width="7" height="105" rx="3" fill="#b7791f"/><text x="86" y="1003" class="block-title">SYS 报告直接回读</text>
-<text x="86" y="1038" class="detail">B17 · 计数 / 错误 / CTRL DONE</text>
+<text x="86" y="1038" class="detail">B16 · 计数 / 错误 / CTRL DONE</text>
 </g>
 <path d="M1370 825V1020H704" class="wire" stroke="#b7791f" />
-<rect x="754" y="984" width="180" height="29" rx="4" fill="#f8faff"/><text x="760" y="1005" class="detail" style="fill:#b7791f">B17 · CTRL 实时报告</text>
+<rect x="754" y="984" width="180" height="29" rx="4" fill="#f8faff"/><text x="760" y="1005" class="detail" style="fill:#b7791f">B16 · CTRL 实时报告</text>
 <path d="M2260 825V1042H704" class="wire" stroke="#b7791f" />
-<rect x="1944" y="1009" width="96" height="29" rx="4" fill="#f8faff"/><text x="1950" y="1030" class="detail" style="fill:#b7791f">B17 · SA</text>
+<rect x="1944" y="1009" width="96" height="29" rx="4" fill="#f8faff"/><text x="1950" y="1030" class="detail" style="fill:#b7791f">B16 · SA</text>
 <path d="M2470 790H2395V1062H704" class="wire" stroke="#b7791f" />
-<rect x="2104" y="1032" width="96" height="29" rx="4" fill="#f8faff"/><text x="2110" y="1053" class="detail" style="fill:#b7791f">B17 · TX</text>
+<rect x="2104" y="1032" width="96" height="29" rx="4" fill="#f8faff"/><text x="2110" y="1053" class="detail" style="fill:#b7791f">B16 · TX</text>
 <path d="M85 965V400H1440V370" class="wire" stroke="#b7791f" />
-<rect x="107" y="399" width="216" height="29" rx="4" fill="#f8faff"/><text x="113" y="420" class="detail" style="fill:#b7791f">B17 · 直接接 REG 组合读口</text>
+<rect x="107" y="399" width="216" height="29" rx="4" fill="#f8faff"/><text x="113" y="420" class="detail" style="fill:#b7791f">B16 · 直接接 REG 组合读口</text>
 <path d="M1320 370V383H1110V552H1250V575" class="wire" stroke="#b7791f" marker-start="url(#arr)"/>
-<rect x="1244" y="522" width="276" height="29" rx="4" fill="#f8faff"/><text x="1250" y="543" class="detail" style="fill:#b7791f">B19 · DONE 清除 req / ack</text>
-<text x="770" y="1100" class="sub">rpt_error → REG 0x106；B18 保留 sa_pipeline_empty。报告无额外 CDC / 快照；DONE 不等于 TX 已完成。</text>
+<rect x="1244" y="522" width="276" height="29" rx="4" fill="#f8faff"/><text x="1250" y="543" class="detail" style="fill:#b7791f">B18 · DONE 清除 req / ack</text>
+<text x="770" y="1100" class="sub">rpt_error → REG 0x106；B17 保留 sa_pipeline_empty。报告无额外 CDC / 快照；DONE 不等于 TX 已完成。</text>
 <rect x="0" y="1110" width="3200" height="2170" fill="white"/><text x="64" y="1160" class="title">全部具名连线 · SIGNAL EXPANSION</text><text x="64" y="1196" class="sub">每个 B 编号对应上方拓扑；信号宽度按当前 RTL 默认参数计算。完整逐端口映射另见接口表。</text>
 <g data-netgroup="system"><rect x="64" y="1250" width="1008" height="605" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="64" y="1250" width="1008" height="51" rx="10" fill="#7c3aed"/><text x="82" y="1284" class="route-title" style="fill:white">B00 · 时钟 / 复位 / DFT</text>
 <text x="82" y="1331" class="sig" data-net="ahb_clk">N001  ahb_clk [1]</text>
@@ -172,27 +170,23 @@
 <text x="82" y="2642" class="sig" data-net="rd_tuser">N049  rd_tuser [1]</text>
 <text x="82" y="2664" class="tiny">EXT → axi2fifo</text>
 </g>
-<g data-netgroup="result"><rect x="64" y="2713" width="1008" height="234" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="64" y="2713" width="1008" height="51" rx="10" fill="#059669"/><text x="82" y="2747" class="route-title" style="fill:white">B13 · SA → FIFO_OUT</text>
-<text x="82" y="2794" class="sig" data-net="dat_out">N062  dat_out [512]</text>
-<text x="82" y="2816" class="tiny">sa_top → fifo_out.data_out</text>
-<text x="82" y="2847" class="sig" data-net="dat_out_vld">N063  dat_out_vld [1]</text>
-<text x="82" y="2869" class="tiny">sa_top → fifo_out</text>
-<text x="82" y="2900" class="sig" data-net="dat_out_last">N064  dat_out_last [1]</text>
-<text x="82" y="2922" class="tiny">sa_top → fifo_out</text>
+<g data-netgroup="lastfeedback"><rect x="64" y="2713" width="1008" height="128" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="64" y="2713" width="1008" height="51" rx="10" fill="#059669"/><text x="82" y="2747" class="route-title" style="fill:white">B13 · SA → CTRL · 完成反馈</text>
+<text x="82" y="2794" class="sig" data-net="sa_result_last">N064  sa_result_last [1]</text>
+<text x="82" y="2816" class="tiny">TOP逻辑 → tpu_ctrl.data_out_last</text>
 </g>
-<g data-netgroup="status"><rect x="64" y="2971" width="1008" height="393" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="64" y="2971" width="1008" height="51" rx="10" fill="#b7791f"/><text x="82" y="3005" class="route-title" style="fill:white">B17 · SYS 状态 → AHB REG_MAP</text>
-<text x="82" y="3052" class="sig" data-net="rpt_active_size_sys">N079  rpt_active_size_sys [32]</text>
-<text x="82" y="3074" class="tiny">sa_top → reg_list.rpt_active_size</text>
-<text x="82" y="3105" class="sig" data-net="rpt_cpt_cyc_sys">N080  rpt_cpt_cyc_sys [32]</text>
-<text x="82" y="3127" class="tiny">fifo2axi → reg_list.rpt_cpt_cyc</text>
-<text x="82" y="3158" class="sig" data-net="rpt_dat_in_cnt_sys">N081  rpt_dat_in_cnt_sys [32]</text>
-<text x="82" y="3180" class="tiny">tpu_ctrl → reg_list.rpt_dat_in_cnt</text>
-<text x="82" y="3211" class="sig" data-net="rpt_error_sys">N082  rpt_error_sys [1]</text>
-<text x="82" y="3233" class="tiny">tpu_ctrl → reg_list.rpt_error</text>
-<text x="82" y="3264" class="sig" data-net="rpt_error_state_sys">N083  rpt_error_state_sys [3]</text>
-<text x="82" y="3286" class="tiny">tpu_ctrl → reg_list.rpt_error_state</text>
-<text x="82" y="3317" class="sig" data-net="compute_done_sys">N084  compute_done_sys [1]</text>
-<text x="82" y="3339" class="tiny">tpu_ctrl → reg_list.rpt_cpt_done</text>
+<g data-netgroup="status"><rect x="64" y="2865" width="1008" height="393" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="64" y="2865" width="1008" height="51" rx="10" fill="#b7791f"/><text x="82" y="2899" class="route-title" style="fill:white">B16 · SYS 状态 → AHB REG_MAP</text>
+<text x="82" y="2946" class="sig" data-net="rpt_active_size_sys">N078  rpt_active_size_sys [32]</text>
+<text x="82" y="2968" class="tiny">sa_top → reg_list.rpt_active_size</text>
+<text x="82" y="2999" class="sig" data-net="rpt_cpt_cyc_sys">N079  rpt_cpt_cyc_sys [32]</text>
+<text x="82" y="3021" class="tiny">fifo2axi → reg_list.rpt_cpt_cyc</text>
+<text x="82" y="3052" class="sig" data-net="rpt_dat_in_cnt_sys">N080  rpt_dat_in_cnt_sys [32]</text>
+<text x="82" y="3074" class="tiny">tpu_ctrl → reg_list.rpt_dat_in_cnt</text>
+<text x="82" y="3105" class="sig" data-net="rpt_error_sys">N081  rpt_error_sys [1]</text>
+<text x="82" y="3127" class="tiny">tpu_ctrl → reg_list.rpt_error</text>
+<text x="82" y="3158" class="sig" data-net="rpt_error_state_sys">N082  rpt_error_state_sys [3]</text>
+<text x="82" y="3180" class="tiny">tpu_ctrl → reg_list.rpt_error_state</text>
+<text x="82" y="3211" class="sig" data-net="compute_done_sys">N083  compute_done_sys [1]</text>
+<text x="82" y="3233" class="tiny">tpu_ctrl → reg_list.rpt_cpt_done</text>
 </g>
 <g data-netgroup="ahb"><rect x="1098" y="1250" width="1008" height="711" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="1098" y="1250" width="1008" height="51" rx="10" fill="#1d4ed8"/><text x="1116" y="1284" class="route-title" style="fill:white">B01 · CPU · AHB-Lite 边界</text>
 <text x="1116" y="1331" class="sig" data-net="hsel">N011  hsel [1]</text>
@@ -246,24 +240,24 @@
 <text x="1116" y="2741" class="sig" data-net="dat_in_last">N060  dat_in_last [1]</text>
 <text x="1116" y="2763" class="tiny">tpu_ctrl → sa_top</text>
 </g>
-<g data-netgroup="txread"><rect x="1098" y="2812" width="1008" height="287" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="1098" y="2812" width="1008" height="51" rx="10" fill="#059669"/><text x="1116" y="2846" class="route-title" style="fill:white">B15 · FIFO_OUT ↔ fifo2axi</text>
-<text x="1116" y="2893" class="sig" data-net="fifo_out_re">N066  fifo_out_re [1]</text>
+<g data-netgroup="txread"><rect x="1098" y="2812" width="1008" height="287" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="1098" y="2812" width="1008" height="51" rx="10" fill="#059669"/><text x="1116" y="2846" class="route-title" style="fill:white">B14 · FIFO_OUT ↔ fifo2axi</text>
+<text x="1116" y="2893" class="sig" data-net="fifo_out_re">N065  fifo_out_re [1]</text>
 <text x="1116" y="2915" class="tiny">fifo2axi → fifo_out</text>
-<text x="1116" y="2946" class="sig" data-net="fifo_out_empty">N067  fifo_out_empty [1]</text>
+<text x="1116" y="2946" class="sig" data-net="fifo_out_empty">N066  fifo_out_empty [1]</text>
 <text x="1116" y="2968" class="tiny">fifo_out → fifo2axi</text>
-<text x="1116" y="2999" class="sig" data-net="fifo_out_rdata">N068  fifo_out_rdata [512]</text>
+<text x="1116" y="2999" class="sig" data-net="fifo_out_rdata">N067  fifo_out_rdata [512]</text>
 <text x="1116" y="3021" class="tiny">fifo_out → fifo2axi</text>
-<text x="1116" y="3052" class="sig" data-net="fifo_out_head_last">N069  fifo_out_head_last [1]</text>
+<text x="1116" y="3052" class="sig" data-net="fifo_out_head_last">N068  fifo_out_head_last [1]</text>
 <text x="1116" y="3074" class="tiny">fifo_out → fifo2axi.data_out_last</text>
 </g>
-<g data-netgroup="monitor"><rect x="1098" y="3123" width="1008" height="128" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="1098" y="3123" width="1008" height="51" rx="10" fill="#64748b"/><text x="1116" y="3157" class="route-title" style="fill:white">B18 · 顶层监测 / 保留接口</text>
-<text x="1116" y="3204" class="sig" data-net="sa_pipeline_empty">N085  sa_pipeline_empty [1]</text>
+<g data-netgroup="monitor"><rect x="1098" y="3123" width="1008" height="128" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="1098" y="3123" width="1008" height="51" rx="10" fill="#64748b"/><text x="1116" y="3157" class="route-title" style="fill:white">B17 · 顶层监测 / 保留接口</text>
+<text x="1116" y="3204" class="sig" data-net="sa_pipeline_empty">N084  sa_pipeline_empty [1]</text>
 <text x="1116" y="3226" class="tiny">sa_top → TOP监测</text>
 </g>
-<g data-netgroup="doneclear"><rect x="1098" y="3275" width="1008" height="181" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="1098" y="3275" width="1008" height="51" rx="10" fill="#b7791f"/><text x="1116" y="3309" class="route-title" style="fill:white">B19 · DONE 软件清除请求 / 应答</text>
-<text x="1116" y="3356" class="sig" data-net="cpu_done_clear_req">N086  cpu_done_clear_req [1]</text>
+<g data-netgroup="doneclear"><rect x="1098" y="3275" width="1008" height="181" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="1098" y="3275" width="1008" height="51" rx="10" fill="#b7791f"/><text x="1116" y="3309" class="route-title" style="fill:white">B18 · DONE 软件清除请求 / 应答</text>
+<text x="1116" y="3356" class="sig" data-net="cpu_done_clear_req">N085  cpu_done_clear_req [1]</text>
 <text x="1116" y="3378" class="tiny">reg_list → tpu_ctrl</text>
-<text x="1116" y="3409" class="sig" data-net="done_clear_ack">N087  done_clear_ack [1]</text>
+<text x="1116" y="3409" class="sig" data-net="done_clear_ack">N086  done_clear_ack [1]</text>
 <text x="1116" y="3431" class="tiny">tpu_ctrl → reg_list</text>
 </g>
 <g data-netgroup="regbus"><rect x="2132" y="1250" width="1008" height="340" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="2132" y="1250" width="1008" height="51" rx="10" fill="#1d4ed8"/><text x="2150" y="1284" class="route-title" style="fill:white">B02 · AHB_SLAVE ↔ REG_MAP</text>
@@ -298,9 +292,9 @@
 <text x="2150" y="2211" class="sig" data-net="cpu_tpu_start_sync">N040  cpu_tpu_start_sync [1]</text>
 <text x="2150" y="2233" class="tiny">tpu_ctrl → axi2fifo, sa_top, fifo2axi</text>
 </g>
-<g data-netgroup="rxread"><rect x="2132" y="2282" width="1008" height="287" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="2132" y="2282" width="1008" height="51" rx="10" fill="#0891b2"/><text x="2150" y="2316" class="route-title" style="fill:white">B10 · FIFO_IN ↔ CTRL / SA 原始令牌</text>
+<g data-netgroup="rxread"><rect x="2132" y="2282" width="1008" height="287" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="2132" y="2282" width="1008" height="51" rx="10" fill="#0891b2"/><text x="2150" y="2316" class="route-title" style="fill:white">B10 · FIFO_IN ↔ CTRL</text>
 <text x="2150" y="2363" class="sig" data-net="fifo_in_re">N054  fifo_in_re [1]</text>
-<text x="2150" y="2385" class="tiny">tpu_ctrl → fifo_in, sa_top.vector_in_vld</text>
+<text x="2150" y="2385" class="tiny">tpu_ctrl → fifo_in</text>
 <text x="2150" y="2416" class="sig" data-net="fifo_empty">N055  fifo_empty [1]</text>
 <text x="2150" y="2438" class="tiny">fifo_in → tpu_ctrl</text>
 <text x="2150" y="2469" class="sig" data-net="fifo_in_rdata">N056  fifo_in_rdata [512]</text>
@@ -308,32 +302,32 @@
 <text x="2150" y="2522" class="sig" data-net="fifo_in_rd_dat_last">N057  fifo_in_rd_dat_last [1]</text>
 <text x="2150" y="2544" class="tiny">fifo_in → tpu_ctrl</text>
 </g>
-<g data-netgroup="vector"><rect x="2132" y="2593" width="1008" height="128" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="2132" y="2593" width="1008" height="51" rx="10" fill="#0891b2"/><text x="2150" y="2627" class="route-title" style="fill:white">B12 · FIFO 读端 → SA · 原始 LAST</text>
-<text x="2150" y="2674" class="sig" data-net="vector_in_last">N061  vector_in_last [1]</text>
-<text x="2150" y="2696" class="tiny">TOP逻辑 → sa_top</text>
+<g data-netgroup="result"><rect x="2132" y="2593" width="1008" height="234" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="2132" y="2593" width="1008" height="51" rx="10" fill="#059669"/><text x="2150" y="2627" class="route-title" style="fill:white">B12 · SA → FIFO_OUT</text>
+<text x="2150" y="2674" class="sig" data-net="dat_out">N061  dat_out [512]</text>
+<text x="2150" y="2696" class="tiny">sa_top → fifo_out.data_out</text>
+<text x="2150" y="2727" class="sig" data-net="dat_out_vld">N062  dat_out_vld [1]</text>
+<text x="2150" y="2749" class="tiny">sa_top → fifo_out</text>
+<text x="2150" y="2780" class="sig" data-net="dat_out_last">N063  dat_out_last [1]</text>
+<text x="2150" y="2802" class="tiny">sa_top → fifo_out</text>
 </g>
-<g data-netgroup="lastfeedback"><rect x="2132" y="2745" width="1008" height="128" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="2132" y="2745" width="1008" height="51" rx="10" fill="#059669"/><text x="2150" y="2779" class="route-title" style="fill:white">B14 · SA → CTRL · 完成反馈</text>
-<text x="2150" y="2826" class="sig" data-net="sa_result_last">N065  sa_result_last [1]</text>
-<text x="2150" y="2848" class="tiny">TOP逻辑 → tpu_ctrl.data_out_last</text>
+<g data-netgroup="tx"><rect x="2132" y="2851" width="1008" height="552" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="2132" y="2851" width="1008" height="51" rx="10" fill="#059669"/><text x="2150" y="2885" class="route-title" style="fill:white">B15 · AXI 输出边界 · wr_*</text>
+<text x="2150" y="2932" class="sig" data-net="wr_tready">N069  wr_tready [1]</text>
+<text x="2150" y="2954" class="tiny">EXT → fifo2axi</text>
+<text x="2150" y="2985" class="sig" data-net="wr_tvalid">N070  wr_tvalid [1]</text>
+<text x="2150" y="3007" class="tiny">fifo2axi → EXT</text>
+<text x="2150" y="3038" class="sig" data-net="wr_tdata">N071  wr_tdata [512]</text>
+<text x="2150" y="3060" class="tiny">fifo2axi → EXT</text>
+<text x="2150" y="3091" class="sig" data-net="wr_tkeep">N072  wr_tkeep [64]</text>
+<text x="2150" y="3113" class="tiny">fifo2axi → EXT</text>
+<text x="2150" y="3144" class="sig" data-net="wr_tstrb">N073  wr_tstrb [64]</text>
+<text x="2150" y="3166" class="tiny">fifo2axi → EXT</text>
+<text x="2150" y="3197" class="sig" data-net="wr_tlast">N074  wr_tlast [1]</text>
+<text x="2150" y="3219" class="tiny">fifo2axi → EXT</text>
+<text x="2150" y="3250" class="sig" data-net="wr_tid">N075  wr_tid [1]</text>
+<text x="2150" y="3272" class="tiny">fifo2axi → EXT</text>
+<text x="2150" y="3303" class="sig" data-net="wr_tdest">N076  wr_tdest [1]</text>
+<text x="2150" y="3325" class="tiny">fifo2axi → EXT</text>
+<text x="2150" y="3356" class="sig" data-net="wr_tuser">N077  wr_tuser [1]</text>
+<text x="2150" y="3378" class="tiny">fifo2axi → EXT</text>
 </g>
-<g data-netgroup="tx"><rect x="2132" y="2897" width="1008" height="552" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="2132" y="2897" width="1008" height="51" rx="10" fill="#059669"/><text x="2150" y="2931" class="route-title" style="fill:white">B16 · AXI 输出边界 · wr_*</text>
-<text x="2150" y="2978" class="sig" data-net="wr_tready">N070  wr_tready [1]</text>
-<text x="2150" y="3000" class="tiny">EXT → fifo2axi</text>
-<text x="2150" y="3031" class="sig" data-net="wr_tvalid">N071  wr_tvalid [1]</text>
-<text x="2150" y="3053" class="tiny">fifo2axi → EXT</text>
-<text x="2150" y="3084" class="sig" data-net="wr_tdata">N072  wr_tdata [512]</text>
-<text x="2150" y="3106" class="tiny">fifo2axi → EXT</text>
-<text x="2150" y="3137" class="sig" data-net="wr_tkeep">N073  wr_tkeep [64]</text>
-<text x="2150" y="3159" class="tiny">fifo2axi → EXT</text>
-<text x="2150" y="3190" class="sig" data-net="wr_tstrb">N074  wr_tstrb [64]</text>
-<text x="2150" y="3212" class="tiny">fifo2axi → EXT</text>
-<text x="2150" y="3243" class="sig" data-net="wr_tlast">N075  wr_tlast [1]</text>
-<text x="2150" y="3265" class="tiny">fifo2axi → EXT</text>
-<text x="2150" y="3296" class="sig" data-net="wr_tid">N076  wr_tid [1]</text>
-<text x="2150" y="3318" class="tiny">fifo2axi → EXT</text>
-<text x="2150" y="3349" class="sig" data-net="wr_tdest">N077  wr_tdest [1]</text>
-<text x="2150" y="3371" class="tiny">fifo2axi → EXT</text>
-<text x="2150" y="3402" class="sig" data-net="wr_tuser">N078  wr_tuser [1]</text>
-<text x="2150" y="3424" class="tiny">fifo2axi → EXT</text>
-</g>
-<text x="64" y="3520" class="sub">87 条具名信号 · 193 个模块端口映射 · 36 个顶层接口 · 全部已列出</text></svg>
+<text x="64" y="3520" class="sub">86 条具名信号 · 191 个模块端口映射 · 36 个顶层接口 · 全部已列出</text></svg>

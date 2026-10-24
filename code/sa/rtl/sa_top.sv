@@ -23,11 +23,6 @@ module sa_top #(
     input  logic                                  dat_in_vld,
     input  logic                                  dat_in_last,
 
-    // Original FIFO-vector metadata at the lane-0 sampling edge.
-    // Shared dat_in_vld also includes the other skew lanes and padding.
-    input  wire logic                             vector_in_vld,
-    input  wire logic                             vector_in_last,
-
     // RegMap Interface
     input  logic                                  cpu_dat_in_b_lock,
     input  logic [DATA_WIDTH*ARRAY_W-1:0]         cpu_dat_in_b,
@@ -55,11 +50,11 @@ module sa_top #(
     logic [W_SIZE_WIDTH-1:0]               active_w_size;
     logic [DATA_WIDTH*ARRAY_W-1:0]         raw_dat_out;
     logic [ARRAY_W-1:0]                    raw_dat_out_vld;
+    logic collector_empty;
 
-    // The original shared PE valid also marks zero-padding calculations.
-    // Useful matrix LAST is not permission to stop the clocks: CTRL waits
-    // until even the final padding beat has left the physical bottom row.
-    assign sa_pipeline_empty = !(|raw_dat_out_vld);
+    // Report both physical PE activity and pending collector results.
+    // The delayed collector may still have useful results after the PE drains.
+    assign sa_pipeline_empty = !(|raw_dat_out_vld) && collector_empty;
 
     sa_ctrl #(
         .DATA_WIDTH   (DATA_WIDTH),
@@ -129,8 +124,9 @@ module sa_top #(
         .stream_enable   (cpu_tpu_en_sync),
         .active_h_size   (cpu_h_size),
         .active_w_size,
-        .vector_in_vld,
-        .vector_in_last,
+        .dat_in_vld,
+        .dat_in_last,
+        .collector_empty,
         .cpt_mode        (pe_cpt_mode),
         .raw_dat_in      (raw_dat_out),
         .raw_dat_in_vld  (raw_dat_out_vld),

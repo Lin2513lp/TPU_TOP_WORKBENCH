@@ -207,8 +207,6 @@ module tpu_top (
         .dat_in_a(dat_in_a),
         .dat_in_vld(dat_in_vld),
         .dat_in_last(dat_in_last),
-        .vector_in_vld(fifo_in_re),
-        .vector_in_last(fifo_in_re && fifo_in_rd_dat_last),
         .cpu_dat_in_b_lock(cpu_dat_in_b_lock),
         .cpu_dat_in_b(cpu_dat_in_b),
         .cpu_dat_in_b_sel(cpu_dat_in_b_sel),

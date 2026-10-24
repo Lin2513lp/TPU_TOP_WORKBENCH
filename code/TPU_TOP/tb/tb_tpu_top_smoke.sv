@@ -171,13 +171,13 @@ module tb_tpu_top_smoke;
             done_seen=1;t_cpu_done=$time;
             // The direct CTRL DONE can be visible after NBA before the next
             // SYS monitor sample; include the actual completion source.
-            check((compute_seen||dut.u_ctrl.rpt_cpt_done)&&tx_lasts==1,
-                  "smoke DONE follows compute and accepted TX LAST");
+            check(compute_seen||dut.u_ctrl.rpt_cpt_done,
+                  "direct DONE comes from CTRL computation completion");
             check(dut.u_reg.rpt_active_size===32'h00040004&&
-                  dut.u_reg.rpt_cpt_cyc===32'd7&&dut.u_reg.rpt_dat_in_cnt===32'd4&&
+                  dut.u_reg.rpt_dat_in_cnt===32'd4&&
                   dut.u_reg.rpt_error===1'b0&&dut.u_reg.rpt_error_state===3'd0,
-                  "direct report inputs have expected smoke values at DONE");
-            $display("SMOKE_CPU_DONE time=%0t active=00040004 tx_count=7 input_count=4 errors=0",$time);
+                  "compute-side report inputs have expected smoke values at DONE");
+            $display("SMOKE_CPU_DONE time=%0t active=00040004 tx_count=%0d input_count=4 errors=0",$time,dut.u_reg.rpt_cpt_cyc);
         end
     end
 
@@ -220,6 +220,9 @@ module tb_tpu_top_smoke;
             if(cpu_done_read==1)break;
         end
         check(cpu_done_read===1,"AHB polling observed CPU DONE");
+        // Direct CTRL DONE and accepted AXI LAST are separate boundaries.
+        // Keep clocks/configuration stable until the output consumer drains.
+        wait(tx_lasts==1);
         phase=6;$display("SMOKE_PHASE REPORT_READS time=%0t",$time);
         read_check('h100,'h00040004);read_check('h101,7);read_check('h102,4);
         read_check('h103,0);read_check('h106,0);read_check('h104,1);

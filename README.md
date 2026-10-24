@@ -10,6 +10,7 @@ Top-level integration of a 16 x 16 multi-precision TPU, connecting AHB configura
 - 36 external ports, 32 register addresses, and current RTL/TB source browsing and downloads.
 - 4 x 4 INT8 smoke waveforms, simulation-stage timing, and hexadecimal stimulus, expected results and actual outputs.
 - AHB configuration, weight loading, START, stream handshakes, report reads and DONE write-one-to-clear.
+- Original SA skewed data/VALID/LAST interface; continuous packet input and internal result staging adding 15 SYS cycles.
 
 ## Source files
 
