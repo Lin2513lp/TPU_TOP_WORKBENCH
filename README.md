@@ -1,3 +1,5 @@
+> 源码范围：仅本模块 RTL、内部子模块及独立 TB；其他模块源码请进入对应工作台。`code/` 不收录联调包装、构建脚本、Makefile 或说明文件。
+
 # TPU_TOP Design Workbench
 
 **[Open the TPU_TOP Workbench](https://lin2513lp.github.io/TPU_TOP_WORKBENCH/TPU_TOP_WORKBENCH.html)**
@@ -14,42 +16,23 @@ Top-level integration of a 16 x 16 multi-precision TPU, connecting AHB configura
 
 ## Source files
 
-[`code/`](code/) contains the integrated `TPU_TOP` project and all RTL dependencies used by its compile list. Relative paths and file contents are preserved. The workbench's code viewer displays this same snapshot.
+[`code/`](code/) contains only this module’s RTL, internal submodules and standalone HDL testbenches. There are **2 RTL/TB files**. Other modules are available from their respective workbenches. [`source-manifest.json`](source-manifest.json) lists the retained source hashes.
 
-There are **32 project files** in this snapshot. [`source-manifest.json`](source-manifest.json) records the source inventory and SHA-256 checksums. Generated simulator databases, waveform dumps, editor temporary files and license logs are excluded.
 
 ## Repository layout
 
 | Path | Contents |
 | --- | --- |
 | [`TPU_TOP_WORKBENCH.html`](TPU_TOP_WORKBENCH.html) | Main design workbench; also works offline |
-| [`code/TPU_TOP/`](code/TPU_TOP/) | Integrated TOP, smoke testbench, Makefile, CDC constraints and notes |
-| [`code/`](code/) | Compiled AHB, CRG, AXI, CTRL and SA dependencies, alongside TOP |
+| [`code/TPU_TOP/`](code/TPU_TOP/) | TOP RTL and its smoke testbench |
+| [`code/`](code/) | This module’s RTL and independent HDL testbenches |
 | [`assets/`](assets/) | Connectivity diagram and Verdi waveform capture |
 | [`source-manifest.json`](source-manifest.json) | Source inventory and checksums |
 | [`index.html`](index.html) | English project introduction and workbench link |
 
 ## Using the project
 
-Open the workbench through the link above to browse the report, code and waveforms. For simulation, clone this repository, enter `code/TPU_TOP/`, and use its Makefile in a configured Linux EDA environment. Keep the sibling IP directories under `code/`; `rtl/filelist.f` references them.
-
-```bash
-cd code/TPU_TOP
-make smoke       # Compile, run the self-checking smoke and generate FSDB
-make verdi       # Open the existing FSDB/KDB from a Linux desktop terminal
-```
-
-| Command | Action |
-| --- | --- |
-| `make compile` | VCS compilation only |
-| `make lint` | VCS static lint |
-| `make spyglass` | SpyGlass RTL lint |
-| `make cdc-setup` | CDC setup and constraint checks |
-| `make cdc` | CDC setup plus structural verification |
-| `make all` | Smoke, VCS lint, SpyGlass lint and CDC, stopping on failure |
-| `make help` | List all supported targets |
-
-Configure tool paths and licenses for your installation. Native outputs are written to `~/tpu_top_runs/TPU_TOP/`. Core structural CDC rules require the appropriate Advanced_CDC license; skipped rules are treated as incomplete verification, not a passing CDC result.
+Open the workbench to browse the design report, waveforms and this module’s RTL/TB. Run simulation in the original local project environment.
 
 ## Latest simulation update
 
