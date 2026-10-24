@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-24",
+  "compile": "PASS",
+  "strictSimulation": "PASS",
+  "checks": 107,
+  "rxBeats": 4,
+  "txBeats": 7,
+  "arithmeticLanes": 16,
+  "externalPorts": 36,
+  "displayedSignals": 36,
+  "simulator": "VCS V-2023.12-SP2",
+  "viewer": "Verdi V-2023.12-SP2 nWave",
+  "fsdbSha256": "9418e33b0d630f63678a1c2bd31c507f7fb19366a447fdd0137e82f095fb5583",
+  "runDir": "/home/yian/tpu_top_runs/ctrl_sa_markers_18ports_20261024",
+  "makeExitCode": 0
+}

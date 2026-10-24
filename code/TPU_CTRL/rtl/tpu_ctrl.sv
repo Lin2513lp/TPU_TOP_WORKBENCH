@@ -2,7 +2,7 @@
 `default_nettype none
 
 // CTRL 固定处理 16 路 x 32 bit 输入，第 r 路延迟 r 拍；空白位置补 0。
-// H/W/mode 配置不改变 FIFO 读法、输出数据、VALID 或物理尾部 LAST。
+// H/W/mode 不改变 FIFO 读法或错位数据；物理尾部 LAST 保留在 CTRL 内部。
 // 输入包数由实际 FIFO 数据及输入 LAST 决定，不由 H/W 决定。
 module tpu_ctrl (
     // Always-on control while a task/CDC handshake is in progress; SYS clock
@@ -29,6 +29,8 @@ module tpu_ctrl (
     output      logic cpu_tpu_en_sync,
     output      logic cpu_tpu_start_sync,
     output      logic [511:0] dat_in_a,
+    // Lane0 vector sampling markers; dat_in_a remains row-skewed.
+    // VALID=0 does not mean all lanes are empty; LAST is not lane15 tail.
     output      logic dat_in_vld,
     output      logic dat_in_last,
     // Sticky DONE: fixed input tail + eligible SA LAST; next accepted START or W1C clears.
@@ -63,6 +65,7 @@ module tpu_ctrl (
     logic output_last_seen_q;
     logic start_accept;
     logic skew_clear;
+    logic skew_dat_in_vld, skew_dat_in_last;
     logic bad_last;
     logic bad_last_prev_q;
     // H/W/mode 仅保留配置接口，不裁剪 16 路数据，也不改变各路延迟。
@@ -85,9 +88,13 @@ module tpu_ctrl (
         .sys_ckg, .tpu_rst_n, .clear(skew_clear),
         .input_data(fifo_in_rdata), .input_valid(fifo_in_re),
         .input_last(fifo_in_rd_dat_last),
-        .output_data(dat_in_a), .output_valid(dat_in_vld),
-        .output_last(dat_in_last)
+        .output_data(dat_in_a), .output_valid(skew_dat_in_vld),
+        .output_last(skew_dat_in_last)
     );
+
+    // Lane0 sampling metadata is owned by CTRL; the data bus remains skewed.
+    assign dat_in_vld = fifo_in_re;
+    assign dat_in_last = fifo_in_re && fifo_in_rd_dat_last;
 
     // No FSM: task and completion flags delimit the stream.
     // Rising START during a task is ignored. A held-high START never retriggers.
@@ -120,7 +127,7 @@ module tpu_ctrl (
                     rpt_dat_in_cnt <= rpt_dat_in_cnt + 32'd1;
                     if (fifo_in_rd_dat_last) input_last_seen_q <= 1'b1;
                 end
-                if (dat_in_vld && dat_in_last) skew_last_seen_q <= 1'b1;
+                if (skew_dat_in_vld && skew_dat_in_last) skew_last_seen_q <= 1'b1;
                 // 小尺寸 SA 的有效结果可能早于固定 16 路输入尾巴结束。
                 // 先记住 SA LAST，仍然把所有路尾巴送完后再报告 DONE。
                 // 不根据 H/W 提前截断 dat_in_a / VALID / LAST。
@@ -128,7 +135,7 @@ module tpu_ctrl (
                 // 最短 PE 路径也只能在之后的采样沿把结果返回 CTRL。
                 if (data_out_last && input_last_seen_q)
                     output_last_seen_q <= 1'b1;
-                if ((skew_last_seen_q || (dat_in_vld && dat_in_last)) &&
+                if ((skew_last_seen_q || (skew_dat_in_vld && skew_dat_in_last)) &&
                     (output_last_seen_q || (data_out_last && input_last_seen_q))) begin
                     // A new completion wins a simultaneous software clear.
                     rpt_cpt_done <= 1'b1;

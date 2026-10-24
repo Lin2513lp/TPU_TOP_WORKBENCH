@@ -10,7 +10,7 @@ Top-level integration of a 16 x 16 multi-precision TPU, connecting AHB configura
 - 36 external ports, 32 register addresses, and current RTL/TB source browsing and downloads.
 - 4 x 4 INT8 smoke waveforms, simulation-stage timing, and hexadecimal stimulus, expected results and actual outputs.
 - AHB configuration, weight loading, START, stream handshakes, report reads and DONE write-one-to-clear.
-- August 7 SA baseline: exactly 18 ports and the original cumulative collector; only two verified FP2FIX fixes remain.
+- Original 18 SA ports; existing CTRL VALID/LAST carry lane0 vector markers. SA restores PE shared valid internally with 15 single-bit history registers; no numeric buffer or added latency.
 
 ## Source files
 
@@ -53,9 +53,11 @@ Configure tool paths and licenses for your installation. Native outputs are writ
 
 ## Latest simulation update
 
-The restored August SA passes its six original top tests and three units. The unchanged TOP streaming smoke **fails** in both Questa and VM VCS: the first AXI beat at 2573.750 ns is zero while lane0 is expected to be 30. August SA's cumulative output differs from the test's four independent vectors and seven streaming beats. Later DONE/W1C checks are not reached; previous 107-check passing results belong to the superseded redesign.
+The unchanged strict TOP smoke now passes **107 checks** in both Questa and VM VCS: four input beats, seven output beats, sixteen independent arithmetic results, LAST, AHB reports and W1C. This is new evidence for the existing-pin marker correction, not a reused historical result.
 
-The [simulation report](https://lin2513lp.github.io/TPU_TOP_WORKBENCH/TPU_TOP_WORKBENCH.html#smoke-waveform) provides the actual current native Verdi screenshots, VCD and failure log. The strict arithmetic oracle has not been relaxed.
+Six SA top tests and three units also pass. A dual real-FIFO / CTRL / SA comparison covers 108 tasks across four modes, three sizes and multiple lengths/gaps, checking data, PE valid, output timing and DONE against the pre-midnight version. Only two RTL modules change relative to that version. PE arithmetic, SA_CTRL, Skew numeric data and the collector are byte-identical; SA adds 15 control bits and no numeric delay. Existing VALID/LAST timing semantics are explicitly documented.
+
+The [simulation report](https://lin2513lp.github.io/TPU_TOP_WORKBENCH/TPU_TOP_WORKBENCH.html#smoke-waveform) provides current native Verdi screenshots, VCD and raw VCS logs.
 
 ## Related workbenches
 

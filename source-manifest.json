@@ -1,7 +1,7 @@
 {
   "workbench": "TPU_TOP_WORKBENCH.html",
-  "workbenchSha256": "fd6c85746caf8a665b26fc3a5c54a3bcd67b62f26692ff4c5eec1fbc0c45c012",
-  "revision": "0.7",
+  "workbenchSha256": "e094e31f7be6d7b208a213280a33ab35972dfa5f70dd7f274648d3c549489aba",
+  "revision": "0.8",
   "sources": [
     {
       "name": "TPU_TOP/rtl/tpu_top.sv",
@@ -40,13 +40,13 @@
     },
     {
       "name": "TPU_CTRL/rtl/tpu_ctrl.sv",
-      "sha256": "7ce759b67c37c3ae85ef51af9f37e20e93b5c3268a034de54f0d0fdda8f02f95",
-      "bytes": 7871
+      "sha256": "36e8b638c1a6de2e0631cdb300a61b13ae087f9d585dbd8dd978bcfe04012602",
+      "bytes": 8277
     },
     {
       "name": "sa/rtl/sa_top.sv",
-      "sha256": "1ff701ca3aa3637be7bf3f2cb00b76443bdba9c164ecc97ff637bb8da05ec801",
-      "bytes": 4294
+      "sha256": "b4f3a68f54b9b4140fd91a9d30bd5a2617513d628558ac1cdfc00aa7ab6b1827",
+      "bytes": 5720
     },
     {
       "name": "AXI_TOP/AXI_S_TOP/rtl/AXI_S_TOP.sv",
@@ -75,8 +75,8 @@
     },
     {
       "name": "sa/rtl/output_collector.sv",
-      "sha256": "03133a594eb583361c540606e3b85732f0c4fd935d8920b6d2cb2cf9ebf1e91e",
-      "bytes": 5683
+      "sha256": "af5533d9cfde001ea51df1e2092ef95fe96471dae236a0554e091c4de670ec26",
+      "bytes": 5749
     },
     {
       "name": "sa/rtl/pe_array_16x16.sv",
@@ -145,8 +145,8 @@
     },
     {
       "name": "TPU_TOP/docs/TOP_INTEGRATION.md",
-      "sha256": "71ad594f0f89dd32643cfc650f0d705be3553b7c86f7739c9a886db3624b3dc1",
-      "bytes": 7522
+      "sha256": "3df25a3e9bdebc57df0fc57fa1ce6deb7386cb1ccfcffd84096a189808dc50fa",
+      "bytes": 7833
     },
     {
       "name": "TPU_TOP/docs/CDC_使用说明.md",
@@ -160,8 +160,8 @@
     },
     {
       "name": "TPU_TOP/tb/tb_tpu_top_smoke.sv",
-      "sha256": "8f2001ceced15251b86c2f85e2e384db16eed2b42832c151b49b7bd19d72c576",
-      "bytes": 11006
+      "sha256": "43f0f372839e8637232918cbbeafd27310c2b07a90e3e5fa7fbc03527c6a380f",
+      "bytes": 10839
     }
   ]
 }

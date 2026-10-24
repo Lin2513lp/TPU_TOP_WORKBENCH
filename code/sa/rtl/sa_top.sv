@@ -20,6 +20,8 @@ module sa_top #(
     input  logic                                  cpu_tpu_start_sync,
     input  logic                                  cpu_tpu_en_sync,
     input  logic [DATA_WIDTH*ARRAY_H-1:0]         dat_in_a,
+    // Lane0 vector sampling markers; dat_in_a remains row-skewed.
+    // VALID=0 does not mean all lanes are empty; LAST is not lane15 tail.
     input  logic                                  dat_in_vld,
     input  logic                                  dat_in_last,
 
@@ -47,9 +49,30 @@ module sa_top #(
     logic [ARRAY_H-1:0]                    pe_b_lock_row;
     logic [ARRAY_H*ARRAY_W-1:0]            pe_en;
     logic [W_SIZE_WIDTH-1:0]               active_w_size;
-    logic                                  task_input_last;
     logic [DATA_WIDTH*ARRAY_W-1:0]         raw_dat_out;
     logic [ARRAY_W-1:0]                    raw_dat_out_vld;
+
+    // dat_in_vld/LAST are CTRL-owned lane0 markers; dat_in_a stays skewed.
+    // Recreate the former OR over physical skew lanes for the unchanged PE path.
+    logic skew_dat_in_vld;
+    generate
+        if (ARRAY_H == 1) begin : gen_one_lane_valid
+            assign skew_dat_in_vld = cpu_tpu_en_sync && dat_in_vld;
+        end else begin : gen_skew_valid
+            logic [ARRAY_H-2:0] valid_history_q;
+            always_ff @(posedge sys_ckg or negedge tpu_rst_n) begin
+                if (!tpu_rst_n)
+                    valid_history_q <= '0;
+                else if (!cpu_tpu_en_sync)
+                    valid_history_q <= '0;
+                else
+                    valid_history_q <= (valid_history_q << 1) |
+                                       (ARRAY_H-1)'(dat_in_vld);
+            end
+            assign skew_dat_in_vld = cpu_tpu_en_sync &&
+                                     (dat_in_vld || (|valid_history_q));
+        end
+    endgenerate
 
     sa_ctrl #(
         .DATA_WIDTH   (DATA_WIDTH),
@@ -66,7 +89,7 @@ module sa_top #(
         .tpu_rst_n,
         .cpu_tpu_en_sync,
         .dat_in_a,
-        .dat_in_vld,
+        .dat_in_vld (skew_dat_in_vld),
         .dat_in_last,
         .cpu_dat_in_b_lock,
         .cpu_dat_in_b,
@@ -84,7 +107,7 @@ module sa_top #(
         .pe_b_lock_row,
         .pe_en,
         .active_w_size,
-        .task_input_last
+        .task_input_last ()
     );
 
     pe_array_16x16 #(
@@ -109,13 +132,18 @@ module sa_top #(
     output_collector #(
         .DATA_WIDTH   (DATA_WIDTH),
         .MODE_WIDTH   (MODE_WIDTH),
+        .ARRAY_H      (ARRAY_H),
         .ARRAY_W      (ARRAY_W),
+        .H_SIZE_WIDTH (H_SIZE_WIDTH),
         .W_SIZE_WIDTH (W_SIZE_WIDTH)
     ) u_output_collector (
         .sys_ckg,
         .tpu_rst_n,
+        .stream_enable   (cpu_tpu_en_sync),
+        .active_h_size   (cpu_h_size),
         .active_w_size,
-        .task_input_last,
+        .vector_in_vld (dat_in_vld),
+        .vector_in_last(dat_in_last),
         .cpt_mode        (pe_cpt_mode),
         .raw_dat_in      (raw_dat_out),
         .raw_dat_in_vld  (raw_dat_out_vld),
@@ -127,3 +155,4 @@ module sa_top #(
 endmodule
 
 `default_nettype wire
+
