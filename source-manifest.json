@@ -1,6 +1,6 @@
 {
   "workbench": "TPU_TOP_WORKBENCH.html",
-  "workbenchSha256": "e094e31f7be6d7b208a213280a33ab35972dfa5f70dd7f274648d3c549489aba",
+  "workbenchSha256": "0b21e86947023dee0aba61ab93f8f7fa9928d2e18f9d14799c31a3442f4f514b",
   "revision": "0.8",
   "sources": [
     {
@@ -145,8 +145,8 @@
     },
     {
       "name": "TPU_TOP/docs/TOP_INTEGRATION.md",
-      "sha256": "3df25a3e9bdebc57df0fc57fa1ce6deb7386cb1ccfcffd84096a189808dc50fa",
-      "bytes": 7833
+      "sha256": "13ea5b7a4fa9960e0fde9c4e4ba23e7256465d7fe03b875154a9973ffc1a6a8e",
+      "bytes": 7818
     },
     {
       "name": "TPU_TOP/docs/CDC_使用说明.md",

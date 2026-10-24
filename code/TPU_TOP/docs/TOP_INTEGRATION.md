@@ -20,7 +20,7 @@ lane0仍对应bits[31:0]。SA对外保持原18端口，不再增加vector_in_vld
 
 当前控制契约：dat_in_a仍为固定16路Skew数据；dat_in_vld表示lane0本拍向量采样有效，dat_in_last表示最后一个lane0向量。VALID为0时其余路仍可能有尾部数据。SA内部仅用15位单比特valid历史恢复原PE共享OR-valid，沿用零点前收集器及其原数值/输出时序，不增加数值缓存。CTRL内部保留原Skew有效和物理lane15尾部，用于DONE；不把新外部LAST误用作物理尾部。
 
-本次原TOP TB及独立算术oracle字节不变，Questa和虚拟机VCS均通过107项严格检查；6组SA和3个单元测试通过。双真实FIFO/CTRL/SA的108个任务逐拍对照旧版数据、PE共享valid、raw结果、最终输出、LAST、DONE和报告计数一致。此前八月收集器直接接入的首拍0/30失败保留为历史，本次修正的证据见reports/minimal_ctrl_sa_markers_20261024。
+本次原TOP TB及独立算术oracle字节不变，虚拟机VCS通过107项严格检查；6组SA和3个单元测试通过。双真实FIFO/CTRL/SA的108个任务逐拍对照旧版数据、PE共享valid、raw结果、最终输出、LAST、DONE和报告计数一致。此前八月收集器直接接入的首拍0/30失败保留为历史，本次修正的证据见reports/minimal_ctrl_sa_markers_20261024。
 
 ## 沿用原有CDC
 
@@ -67,7 +67,7 @@ START/LOCK的AHB单周期W1P必须覆盖足够有效SYS采样边沿。100MHz AHB
 
 CRG提供公共异步复位断言，并对常开SYS同步释放。TOP保留AHB独立两级同步释放。SYS/PE门控时钟来自同一SYS源；DFT保留原测试复位旁路和门控覆盖。复位源、模式切换及复位域交互还需独立审查。
 
-tb/tb_tpu_top_smoke.sv针对直连结构要求一项4×4 INT8任务：AHB配置、四行权重、一次START、4拍输入、7拍输出、16个有效lane独立算术比较、LAST/侧带、报告与W1C。本次既有TB未修改，并在Questa与VM VCS重新通过107项检查。旧版记录不能替代本次测试，也不得以单组TOP功能测试声称所有精度、任务重叠、停钟命令或CDC已签核。
+tb/tb_tpu_top_smoke.sv针对直连结构要求一项4×4 INT8任务：AHB配置、四行权重、一次START、4拍输入、7拍输出、16个有效lane独立算术比较、LAST/侧带、报告与W1C。本次既有TB未修改，并在虚拟机VCS重新通过107项检查。旧版记录不能替代本次测试，也不得以单组TOP功能测试声称所有精度、任务重叠、停钟命令或CDC已签核。
 
 FP2FIX此前舍入为零和组合默认赋值修正保留。各历史回归及静态结果见带日期报告，仅对应其中记录的源码版本。
 

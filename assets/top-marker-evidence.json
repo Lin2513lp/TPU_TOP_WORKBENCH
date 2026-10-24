@@ -12,5 +12,561 @@
   "viewer": "Verdi V-2023.12-SP2 nWave",
   "fsdbSha256": "9418e33b0d630f63678a1c2bd31c507f7fb19366a447fdd0137e82f095fb5583",
   "runDir": "/home/yian/tpu_top_runs/ctrl_sa_markers_18ports_20261024",
-  "makeExitCode": 0
+  "makeExitCode": 0,
+  "nativeCapture": {
+    "sourceFsdbSha256": "9418e33b0d630f63678a1c2bd31c507f7fb19366a447fdd0137e82f095fb5583",
+    "ports": 36,
+    "nativeWindow": [
+      1800,
+      880
+    ],
+    "signalHeight": 22,
+    "screenshots": [
+      {
+        "name": "top_compute.png",
+        "sha256": "3dde1bd4ede0a273fb3e550356343d3b6d2f2e97efd1607acaa79270b979ba35"
+      },
+      {
+        "name": "top_full.png",
+        "sha256": "ded7bfcd3cd24b4a10b528c63c5f2b383ed9713fc93855ff0a003abb8e44017a"
+      },
+      {
+        "name": "top_input.png",
+        "sha256": "31eda02cdbc63169b30975ed51680ac08961b38d0a8a0843a9cc9f3048dbcc60"
+      },
+      {
+        "name": "top_w1c.png",
+        "sha256": "0af603e0c06aac0e51f29a7468f48ee5237a206b515459de1e406206ba345425"
+      }
+    ],
+    "applicationScale": 1,
+    "imageResampled": false,
+    "desktopScaleSettings": {
+      "scaling-factor": "uint32 0",
+      "text-scaling-factor": "1.0"
+    },
+    "sourceSimulation": "VCS107PASS; existing tested FSDB; RTL/TB unchanged"
+  },
+  "timelineVerification": {
+    "vcdSha256": "e2a11b501dc45fe11b87f3b3207789d00ef57e18e28f8e47c8e785f4d611a764",
+    "ahbTransfers": [
+      {
+        "startNs": 160.0,
+        "completeNs": 185.0,
+        "operation": "读",
+        "address": "0x410",
+        "data": "0x00000000",
+        "verified": true
+      },
+      {
+        "startNs": 200.0,
+        "completeNs": 225.0,
+        "operation": "写",
+        "address": "0x010",
+        "data": "0x00000003",
+        "verified": true
+      },
+      {
+        "startNs": 240.0,
+        "completeNs": 265.0,
+        "operation": "写",
+        "address": "0x014",
+        "data": "0x00000003",
+        "verified": true
+      },
+      {
+        "startNs": 280.0,
+        "completeNs": 305.0,
+        "operation": "写",
+        "address": "0x018",
+        "data": "0x00000001",
+        "verified": true
+      },
+      {
+        "startNs": 320.0,
+        "completeNs": 345.0,
+        "operation": "写",
+        "address": "0x000",
+        "data": "0x00000001",
+        "verified": true
+      },
+      {
+        "startNs": 360.0,
+        "completeNs": 385.0,
+        "operation": "写",
+        "address": "0x414",
+        "data": "0x00000001",
+        "verified": true
+      },
+      {
+        "startNs": 400.0,
+        "completeNs": 425.0,
+        "operation": "读",
+        "address": "0x018",
+        "data": "0x00000001",
+        "verified": true
+      },
+      {
+        "startNs": 440.0,
+        "completeNs": 465.0,
+        "operation": "写",
+        "address": "0x01C",
+        "data": "0x00000000",
+        "verified": true
+      },
+      {
+        "startNs": 480.0,
+        "completeNs": 505.0,
+        "operation": "写",
+        "address": "0x024",
+        "data": "0x00000001",
+        "verified": true
+      },
+      {
+        "startNs": 520.0,
+        "completeNs": 545.0,
+        "operation": "写",
+        "address": "0x028",
+        "data": "0x00000002",
+        "verified": true
+      },
+      {
+        "startNs": 560.0,
+        "completeNs": 585.0,
+        "operation": "写",
+        "address": "0x02C",
+        "data": "0x00000003",
+        "verified": true
+      },
+      {
+        "startNs": 600.0,
+        "completeNs": 625.0,
+        "operation": "写",
+        "address": "0x030",
+        "data": "0x00000004",
+        "verified": true
+      },
+      {
+        "startNs": 640.0,
+        "completeNs": 665.0,
+        "operation": "写",
+        "address": "0x020",
+        "data": "0x00000001",
+        "verified": true
+      },
+      {
+        "startNs": 880.0,
+        "completeNs": 905.0,
+        "operation": "写",
+        "address": "0x01C",
+        "data": "0x00000001",
+        "verified": true
+      },
+      {
+        "startNs": 920.0,
+        "completeNs": 945.0,
+        "operation": "写",
+        "address": "0x024",
+        "data": "0x00000002",
+        "verified": true
+      },
+      {
+        "startNs": 960.0,
+        "completeNs": 985.0,
+        "operation": "写",
+        "address": "0x028",
+        "data": "0x00000003",
+        "verified": true
+      },
+      {
+        "startNs": 1000.0,
+        "completeNs": 1025.0,
+        "operation": "写",
+        "address": "0x02C",
+        "data": "0x00000004",
+        "verified": true
+      },
+      {
+        "startNs": 1040.0,
+        "completeNs": 1065.0,
+        "operation": "写",
+        "address": "0x030",
+        "data": "0x00000005",
+        "verified": true
+      },
+      {
+        "startNs": 1080.0,
+        "completeNs": 1105.0,
+        "operation": "写",
+        "address": "0x020",
+        "data": "0x00000001",
+        "verified": true
+      },
+      {
+        "startNs": 1320.0,
+        "completeNs": 1345.0,
+        "operation": "写",
+        "address": "0x01C",
+        "data": "0x00000002",
+        "verified": true
+      },
+      {
+        "startNs": 1360.0,
+        "completeNs": 1385.0,
+        "operation": "写",
+        "address": "0x024",
+        "data": "0x00000003",
+        "verified": true
+      },
+      {
+        "startNs": 1400.0,
+        "completeNs": 1425.0,
+        "operation": "写",
+        "address": "0x028",
+        "data": "0x00000004",
+        "verified": true
+      },
+      {
+        "startNs": 1440.0,
+        "completeNs": 1465.0,
+        "operation": "写",
+        "address": "0x02C",
+        "data": "0x00000005",
+        "verified": true
+      },
+      {
+        "startNs": 1480.0,
+        "completeNs": 1505.0,
+        "operation": "写",
+        "address": "0x030",
+        "data": "0x00000006",
+        "verified": true
+      },
+      {
+        "startNs": 1520.0,
+        "completeNs": 1545.0,
+        "operation": "写",
+        "address": "0x020",
+        "data": "0x00000001",
+        "verified": true
+      },
+      {
+        "startNs": 1760.0,
+        "completeNs": 1785.0,
+        "operation": "写",
+        "address": "0x01C",
+        "data": "0x00000003",
+        "verified": true
+      },
+      {
+        "startNs": 1800.0,
+        "completeNs": 1825.0,
+        "operation": "写",
+        "address": "0x024",
+        "data": "0x00000004",
+        "verified": true
+      },
+      {
+        "startNs": 1840.0,
+        "completeNs": 1865.0,
+        "operation": "写",
+        "address": "0x028",
+        "data": "0x00000005",
+        "verified": true
+      },
+      {
+        "startNs": 1880.0,
+        "completeNs": 1905.0,
+        "operation": "写",
+        "address": "0x02C",
+        "data": "0x00000006",
+        "verified": true
+      },
+      {
+        "startNs": 1920.0,
+        "completeNs": 1945.0,
+        "operation": "写",
+        "address": "0x030",
+        "data": "0x00000007",
+        "verified": true
+      },
+      {
+        "startNs": 1960.0,
+        "completeNs": 1985.0,
+        "operation": "写",
+        "address": "0x020",
+        "data": "0x00000001",
+        "verified": true
+      },
+      {
+        "startNs": 2200.0,
+        "completeNs": 2225.0,
+        "operation": "读",
+        "address": "0x024",
+        "data": "0x00000004",
+        "verified": true
+      },
+      {
+        "startNs": 2240.0,
+        "completeNs": 2265.0,
+        "operation": "读",
+        "address": "0x030",
+        "data": "0x00000007",
+        "verified": true
+      },
+      {
+        "startNs": 2280.0,
+        "completeNs": 2305.0,
+        "operation": "写",
+        "address": "0x008",
+        "data": "0x00000001",
+        "verified": true
+      },
+      {
+        "startNs": 2530.0,
+        "completeNs": 2555.0,
+        "operation": "读",
+        "address": "0x410",
+        "data": "0x00000000",
+        "verified": true
+      },
+      {
+        "startNs": 2570.0,
+        "completeNs": 2595.0,
+        "operation": "读",
+        "address": "0x410",
+        "data": "0x00000001",
+        "verified": true
+      },
+      {
+        "startNs": 2610.0,
+        "completeNs": 2635.0,
+        "operation": "读",
+        "address": "0x400",
+        "data": "0x00040004",
+        "verified": true
+      },
+      {
+        "startNs": 2650.0,
+        "completeNs": 2675.0,
+        "operation": "读",
+        "address": "0x404",
+        "data": "0x00000007",
+        "verified": true
+      },
+      {
+        "startNs": 2690.0,
+        "completeNs": 2715.0,
+        "operation": "读",
+        "address": "0x408",
+        "data": "0x00000004",
+        "verified": true
+      },
+      {
+        "startNs": 2730.0,
+        "completeNs": 2755.0,
+        "operation": "读",
+        "address": "0x40C",
+        "data": "0x00000000",
+        "verified": true
+      },
+      {
+        "startNs": 2770.0,
+        "completeNs": 2795.0,
+        "operation": "读",
+        "address": "0x418",
+        "data": "0x00000000",
+        "verified": true
+      },
+      {
+        "startNs": 2810.0,
+        "completeNs": 2835.0,
+        "operation": "读",
+        "address": "0x410",
+        "data": "0x00000001",
+        "verified": true
+      },
+      {
+        "startNs": 2950.0,
+        "completeNs": 2975.0,
+        "operation": "读",
+        "address": "0x410",
+        "data": "0x00000001",
+        "verified": true
+      },
+      {
+        "startNs": 2990.0,
+        "completeNs": 3015.0,
+        "operation": "写",
+        "address": "0x410",
+        "data": "0x00000001",
+        "verified": true
+      },
+      {
+        "startNs": 3230.0,
+        "completeNs": 3255.0,
+        "operation": "读",
+        "address": "0x410",
+        "data": "0x00000000",
+        "verified": true
+      },
+      {
+        "startNs": 3270.0,
+        "completeNs": 3295.0,
+        "operation": "读",
+        "address": "0x400",
+        "data": "0x00040004",
+        "verified": true
+      },
+      {
+        "startNs": 3310.0,
+        "completeNs": 3335.0,
+        "operation": "读",
+        "address": "0x404",
+        "data": "0x00000007",
+        "verified": true
+      },
+      {
+        "startNs": 3350.0,
+        "completeNs": 3375.0,
+        "operation": "读",
+        "address": "0x408",
+        "data": "0x00000004",
+        "verified": true
+      },
+      {
+        "startNs": 3390.0,
+        "completeNs": 3415.0,
+        "operation": "写",
+        "address": "0x414",
+        "data": "0x00000000",
+        "verified": true
+      }
+    ],
+    "risingEdgesNs": {
+      "sys_rst_n": 50.0,
+      "rd_tvalid": 2517.5,
+      "dut.dat_out_vld": 2528.75,
+      "dut.dat_out_last": 2543.75,
+      "dut.compute_done_sys": 2566.25,
+      "done_seen": 2575.2,
+      "dut.cpu_done_clear_req": 3015.0,
+      "dut.done_clear_ack": 3021.25
+    },
+    "rx": [
+      {
+        "ns": 2518.75,
+        "lanes": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "last": 0
+      },
+      {
+        "ns": 2521.25,
+        "lanes": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "last": 0
+      },
+      {
+        "ns": 2523.75,
+        "lanes": [
+          3,
+          6,
+          9,
+          12
+        ],
+        "last": 0
+      },
+      {
+        "ns": 2526.25,
+        "lanes": [
+          4,
+          8,
+          12,
+          16
+        ],
+        "last": 1
+      }
+    ],
+    "tx": [
+      {
+        "ns": 2536.25,
+        "lanes": [
+          30,
+          0,
+          0,
+          0
+        ],
+        "last": 0
+      },
+      {
+        "ns": 2538.75,
+        "lanes": [
+          60,
+          40,
+          0,
+          0
+        ],
+        "last": 0
+      },
+      {
+        "ns": 2541.25,
+        "lanes": [
+          90,
+          80,
+          50,
+          0
+        ],
+        "last": 0
+      },
+      {
+        "ns": 2543.75,
+        "lanes": [
+          120,
+          120,
+          100,
+          60
+        ],
+        "last": 0
+      },
+      {
+        "ns": 2546.25,
+        "lanes": [
+          0,
+          160,
+          150,
+          120
+        ],
+        "last": 0
+      },
+      {
+        "ns": 2548.75,
+        "lanes": [
+          0,
+          0,
+          200,
+          180
+        ],
+        "last": 0
+      },
+      {
+        "ns": 2551.25,
+        "lanes": [
+          0,
+          0,
+          0,
+          240
+        ],
+        "last": 1
+      }
+    ],
+    "status": "PASS"
+  }
 }

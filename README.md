@@ -53,7 +53,7 @@ Configure tool paths and licenses for your installation. Native outputs are writ
 
 ## Latest simulation update
 
-The unchanged strict TOP smoke now passes **107 checks** in both Questa and VM VCS: four input beats, seven output beats, sixteen independent arithmetic results, LAST, AHB reports and W1C. This is new evidence for the existing-pin marker correction, not a reused historical result.
+The unchanged strict TOP smoke now passes **107 checks** in VM VCS: four input beats, seven output beats, sixteen independent arithmetic results, LAST, AHB reports and W1C. This is new evidence for the existing-pin marker correction, not a reused historical result.
 
 Six SA top tests and three units also pass. A dual real-FIFO / CTRL / SA comparison covers 108 tasks across four modes, three sizes and multiple lengths/gaps, checking data, PE valid, output timing and DONE against the pre-midnight version. Only two RTL modules change relative to that version. PE arithmetic, SA_CTRL, Skew numeric data and the collector are byte-identical; SA adds 15 control bits and no numeric delay. Existing VALID/LAST timing semantics are explicitly documented.
 
