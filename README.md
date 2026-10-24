@@ -10,7 +10,7 @@ Top-level integration of a 16 x 16 multi-precision TPU, connecting AHB configura
 - 36 external ports, 32 register addresses, and current RTL/TB source browsing and downloads.
 - 4 x 4 INT8 smoke waveforms, simulation-stage timing, and hexadecimal stimulus, expected results and actual outputs.
 - AHB configuration, weight loading, START, stream handshakes, report reads and DONE write-one-to-clear.
-- Original SA skewed data/VALID/LAST interface; continuous packet input and internal result staging adding 15 SYS cycles.
+- August 7 SA baseline: exactly 18 ports and the original cumulative collector; only two verified FP2FIX fixes remain.
 
 ## Source files
 
@@ -53,9 +53,9 @@ Configure tool paths and licenses for your installation. Native outputs are writ
 
 ## Latest simulation update
 
-The current direct integration passes **107 checks** in VM VCS: four input beats, seven output beats, sixteen independently checked arithmetic results and one accepted START. The smoke also checks output LAST/sidebands, AHB report values, sticky DONE, W1C acknowledgement and clock shutdown.
+The restored August SA passes its six original top tests and three units. The unchanged TOP streaming smoke **fails** in both Questa and VM VCS: the first AXI beat at 2573.750 ns is zero while lane0 is expected to be 30. August SA's cumulative output differs from the test's four independent vectors and seven streaming beats. Later DONE/W1C checks are not reached; previous 107-check passing results belong to the superseded redesign.
 
-The [simulation report](https://lin2513lp.github.io/TPU_TOP_WORKBENCH/TPU_TOP_WORKBENCH.html#smoke-waveform) includes 49 AHB accesses and a per-beat hexadecimal comparison against the recorded FSDB. This is one positive-value 4 x 4 INT8 test; it is not a full multi-precision regression or physical CDC/RDC signoff.
+The [simulation report](https://lin2513lp.github.io/TPU_TOP_WORKBENCH/TPU_TOP_WORKBENCH.html#smoke-waveform) provides the actual current native Verdi screenshots, VCD and failure log. The strict arithmetic oracle has not been relaxed.
 
 ## Related workbenches
 

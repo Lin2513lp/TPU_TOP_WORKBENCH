@@ -35,8 +35,7 @@ module sa_top #(
     // Output Interface
     output logic [DATA_WIDTH*ARRAY_W-1:0]         dat_out,
     output logic                                  dat_out_vld,
-    output logic                                  dat_out_last,
-    output logic                                  sa_pipeline_empty
+    output logic                                  dat_out_last
 );
 
     logic                                  pe_tpu_rst_n;
@@ -48,13 +47,9 @@ module sa_top #(
     logic [ARRAY_H-1:0]                    pe_b_lock_row;
     logic [ARRAY_H*ARRAY_W-1:0]            pe_en;
     logic [W_SIZE_WIDTH-1:0]               active_w_size;
+    logic                                  task_input_last;
     logic [DATA_WIDTH*ARRAY_W-1:0]         raw_dat_out;
     logic [ARRAY_W-1:0]                    raw_dat_out_vld;
-    logic collector_empty;
-
-    // Report both physical PE activity and pending collector results.
-    // The delayed collector may still have useful results after the PE drains.
-    assign sa_pipeline_empty = !(|raw_dat_out_vld) && collector_empty;
 
     sa_ctrl #(
         .DATA_WIDTH   (DATA_WIDTH),
@@ -89,7 +84,7 @@ module sa_top #(
         .pe_b_lock_row,
         .pe_en,
         .active_w_size,
-        .task_input_last ()
+        .task_input_last
     );
 
     pe_array_16x16 #(
@@ -114,19 +109,13 @@ module sa_top #(
     output_collector #(
         .DATA_WIDTH   (DATA_WIDTH),
         .MODE_WIDTH   (MODE_WIDTH),
-        .ARRAY_H      (ARRAY_H),
         .ARRAY_W      (ARRAY_W),
-        .H_SIZE_WIDTH (H_SIZE_WIDTH),
         .W_SIZE_WIDTH (W_SIZE_WIDTH)
     ) u_output_collector (
         .sys_ckg,
         .tpu_rst_n,
-        .stream_enable   (cpu_tpu_en_sync),
-        .active_h_size   (cpu_h_size),
         .active_w_size,
-        .dat_in_vld,
-        .dat_in_last,
-        .collector_empty,
+        .task_input_last,
         .cpt_mode        (pe_cpt_mode),
         .raw_dat_in      (raw_dat_out),
         .raw_dat_in_vld  (raw_dat_out_vld),
@@ -138,4 +127,3 @@ module sa_top #(
 endmodule
 
 `default_nettype wire
-

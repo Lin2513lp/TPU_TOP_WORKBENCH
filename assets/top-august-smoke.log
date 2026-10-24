@@ -1,0 +1,29 @@
+Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+Please use '-no_save' simv switch to avoid re-execution or '-suppress=ASLR_DETECTED_INFO' to suppress this message.
+Chronologic VCS simulator copyright 1991-2023
+Contains Synopsys proprietary information.
+Compiler version V-2023.12-SP2_Full64; Runtime version V-2023.12-SP2_Full64;  Oct 23 22:06 2026
+*Verdi* WARNING: 'Enable FSDB dumping with option -debug/-debug_pp/-debug_all and option -P along with novas.tab file' will be deprecated in VERDI2024.09.
+*Verdi* WARNING: Please use '-debug_access' along with a proper setting on VERDI_HOME environment variable in vcs compilation. For details, please refer to VCS manual for -debug_access usage.
+*Verdi* Loading libsscore_vcs202312.so
+FSDB Dumper for VCS, Release Verdi_V-2023.12-SP2, Linux x86_64/64bit, 05/26/2024
+(C) 1996 - 2024 by Synopsys, Inc.
+*Verdi* : Create FSDB file '/home/yian/tpu_top_runs/august_baseline_18ports_20261024/tb_tpu_top_smoke.fsdb'
+*Verdi* : Begin traversing the scope (tb_tpu_top_smoke), layer (0).
+*Verdi* : End of traversing.
+SMOKE_PHASE RESET time=0.00 ns
+SMOKE_PHASE CONFIG time=195.00 ns
+SMOKE_PHASE WEIGHTS time=435.00 ns
+SMOKE_WEIGHT_ROW_LOADED row=0 time=875.00 ns
+SMOKE_WEIGHT_ROW_LOADED row=1 time=1315.00 ns
+SMOKE_WEIGHT_ROW_LOADED row=2 time=1755.00 ns
+SMOKE_WEIGHT_ROW_LOADED row=3 time=2195.00 ns
+SMOKE_PHASE START time=2275.00 ns
+SMOKE_PHASE RX time=2515.00 ns
+SMOKE_PHASE POLL_DONE time=2528.00 ns
+Fatal: "/mnt/hgfs/share/tpu/tpu/TPU_TOP/tb/tb_tpu_top_smoke.sv", 100: tb_tpu_top_smoke.check: at time 2573750 ps
+TPU_TOP_SMOKE_FAIL full512 independent arithmetic beat0 got00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 expected0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001e at 2574.00 ns
+$finish called from file "/mnt/hgfs/share/tpu/tpu/TPU_TOP/tb/tb_tpu_top_smoke.sv", line 100.
+$finish at simulation time 2573.75 ns
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 2573750 ps

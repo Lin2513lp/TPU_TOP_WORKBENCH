@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-24",
+  "compile": "PASS",
+  "strictSimulation": "FAIL",
+  "failureNs": 2573.75,
+  "actualFirstLane": 0,
+  "expectedFirstLane": 30,
+  "externalPorts": 36,
+  "displayedSignals": 36,
+  "simulator": "VCS V-2023.12-SP2",
+  "viewer": "Verdi V-2023.12-SP2 nWave",
+  "fsdbSha256": "56a54d8e9258823408e2923fba17e8552bc047628b0370d9424d18cfcf19c958",
+  "runDir": "/home/yian/tpu_top_runs/august_baseline_18ports_20261024",
+  "makeExitCode": 2
+}

@@ -1,3 +1,4 @@
 *.html -text
 code/** -text
 assets/** -text
+assets/*.log -whitespace

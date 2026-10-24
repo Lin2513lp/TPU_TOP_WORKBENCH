@@ -73,7 +73,6 @@ module tpu_top (
     logic dat_in_vld, dat_in_last, dat_out_vld, dat_out_last;
     // Reserved SA diagnostic output; software waits for CTRL DONE and TX LAST.
     /* verilator lint_off UNUSEDSIGNAL */
-    logic sa_pipeline_empty;
     /* verilator lint_on UNUSEDSIGNAL */
     logic compute_done_sys, rpt_error_sys;
     logic [31:0] rpt_active_size_sys, rpt_cpt_cyc_sys, rpt_dat_in_cnt_sys;
@@ -216,8 +215,7 @@ module tpu_top (
         .rpt_active_size(rpt_active_size_sys),
         .dat_out(dat_out),
         .dat_out_vld(dat_out_vld),
-        .dat_out_last(dat_out_last),
-        .sa_pipeline_empty(sa_pipeline_empty)
+        .dat_out_last(dat_out_last)
     );
 
     AXI_S_TOP u_s (

@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="3200" height="3545" viewBox="0 0 3200 3545" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="3200" height="3492" viewBox="0 0 3200 3492" role="img" aria-labelledby="title desc">
 <title id="title">TPU_TOP 完整模块连接与信号总图</title><desc id="desc">上半部分为顶层拓扑，下半部分为每条具名连线的完整信号展开。七个现有模块直接集成；CTRL/SA 内部完成 START/LOCK 接收，报告直接返回。</desc>
 <defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8" fill="context-stroke"/></marker><pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#e9eef6" stroke-width="1"/></pattern></defs>
 <style>text{font-family:Consolas,"Microsoft YaHei",monospace;fill:#23334d}.title{font-size:35px;font-weight:700}.sub{font-size:20px;fill:#64748b}.block-title{font-size:25px;font-weight:700}.detail{font-size:19px}.route-title{font-size:22px;font-weight:700}.sig{font-size:19px}.tiny{font-size:16px;fill:#64748b}.wire{fill:none;stroke-width:3;marker-end:url(#arr)}.box{fill:white;stroke:#b8c9df;stroke-width:2}.block{cursor:pointer}.block:hover rect{stroke:#1d4ed8;stroke-width:4}.dashed{stroke-dasharray:9 7}</style>
 <rect width="3200" height="3280" fill="#f8faff"/><rect width="3200" height="1080" fill="url(#grid)"/>
 <text x="64" y="64" class="title">TPU_TOP · SYSTEM BLOCK DIAGRAM</text>
 <text x="64" y="101" class="sub">16 × 16 SA · 512-bit AXI-Stream · AHB Register Map · 64 PE clock groups</text>
-<text x="3135" y="65" text-anchor="end" class="sub">Rev 0.6 / 2026-10-24</text>
+<text x="3135" y="65" text-anchor="end" class="sub">Rev 0.7 / 2026-10-24</text>
 <g class="block" data-module="external"><rect x="64" y="175" width="355" height="155" rx="12" class="box " style="stroke:#1d4ed8"/><rect x="64" y="175" width="7" height="155" rx="3" fill="#1d4ed8"/><text x="86" y="213" class="block-title">CPU / AHB HOST</text>
 <text x="86" y="248" class="detail">100 MHz · 常开</text>
 <text x="86" y="277" class="detail">HSEL 基址译码位于外部</text>
@@ -61,9 +61,9 @@
 </g>
 <g class="block" data-module="sa_top"><rect x="1800" y="575" width="510" height="250" rx="12" class="box " style="stroke:#0891b2"/><rect x="1800" y="575" width="7" height="250" rx="3" fill="#0891b2"/><text x="1822" y="613" class="block-title">SA_TOP</text>
 <text x="1822" y="648" class="detail">SA_CTRL + 16 × 16 PE</text>
-<text x="1822" y="677" class="detail">OUTPUT_COLLECTOR</text>
-<text x="1822" y="706" class="detail">仅既有Skew数据 / VALID / LAST</text>
-<text x="1822" y="735" class="detail">SA内部暂存15拍后输出波前</text>
+<text x="1822" y="677" class="detail">八月版 OUTPUT_COLLECTOR</text>
+<text x="1822" y="706" class="detail">原有18个端口</text>
+<text x="1822" y="735" class="detail">逐列累积，最终拍保留完整结果</text>
 </g>
 <rect x="2440" y="518" width="530" height="335" rx="15" fill="#f0fbf5" stroke="#059669" stroke-width="2" stroke-dasharray="10 6"/><text x="2460" y="548" class="detail">AXI_S_TOP · FIFO 位于包装内</text>
 <g class="block" data-module="fifo_out"><rect x="2470" y="575" width="470" height="105" rx="12" class="box " style="stroke:#059669"/><rect x="2470" y="575" width="7" height="105" rx="3" fill="#059669"/><text x="2492" y="613" class="block-title">fifo_out</text>
@@ -117,8 +117,8 @@
 <path d="M85 965V400H1440V370" class="wire" stroke="#b7791f" />
 <rect x="107" y="399" width="216" height="29" rx="4" fill="#f8faff"/><text x="113" y="420" class="detail" style="fill:#b7791f">B16 · 直接接 REG 组合读口</text>
 <path d="M1320 370V383H1110V552H1250V575" class="wire" stroke="#b7791f" marker-start="url(#arr)"/>
-<rect x="1244" y="522" width="276" height="29" rx="4" fill="#f8faff"/><text x="1250" y="543" class="detail" style="fill:#b7791f">B18 · DONE 清除 req / ack</text>
-<text x="770" y="1100" class="sub">rpt_error → REG 0x106；B17 保留 sa_pipeline_empty。报告无额外 CDC / 快照；DONE 不等于 TX 已完成。</text>
+<rect x="1244" y="522" width="276" height="29" rx="4" fill="#f8faff"/><text x="1250" y="543" class="detail" style="fill:#b7791f">B17 · DONE 清除 req / ack</text>
+<text x="770" y="1100" class="sub">SA按八月原有18端口连接。报告无额外CDC / 快照；当前TOP独立向量流协议尚未与八月SA输出语义闭环。</text>
 <rect x="0" y="1110" width="3200" height="2170" fill="white"/><text x="64" y="1160" class="title">全部具名连线 · SIGNAL EXPANSION</text><text x="64" y="1196" class="sub">每个 B 编号对应上方拓扑；信号宽度按当前 RTL 默认参数计算。完整逐端口映射另见接口表。</text>
 <g data-netgroup="system"><rect x="64" y="1250" width="1008" height="605" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="64" y="1250" width="1008" height="51" rx="10" fill="#7c3aed"/><text x="82" y="1284" class="route-title" style="fill:white">B00 · 时钟 / 复位 / DFT</text>
 <text x="82" y="1331" class="sig" data-net="ahb_clk">N001  ahb_clk [1]</text>
@@ -250,15 +250,11 @@
 <text x="1116" y="3052" class="sig" data-net="fifo_out_head_last">N068  fifo_out_head_last [1]</text>
 <text x="1116" y="3074" class="tiny">fifo_out → fifo2axi.data_out_last</text>
 </g>
-<g data-netgroup="monitor"><rect x="1098" y="3123" width="1008" height="128" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="1098" y="3123" width="1008" height="51" rx="10" fill="#64748b"/><text x="1116" y="3157" class="route-title" style="fill:white">B17 · 顶层监测 / 保留接口</text>
-<text x="1116" y="3204" class="sig" data-net="sa_pipeline_empty">N084  sa_pipeline_empty [1]</text>
-<text x="1116" y="3226" class="tiny">sa_top → TOP监测</text>
-</g>
-<g data-netgroup="doneclear"><rect x="1098" y="3275" width="1008" height="181" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="1098" y="3275" width="1008" height="51" rx="10" fill="#b7791f"/><text x="1116" y="3309" class="route-title" style="fill:white">B18 · DONE 软件清除请求 / 应答</text>
-<text x="1116" y="3356" class="sig" data-net="cpu_done_clear_req">N085  cpu_done_clear_req [1]</text>
-<text x="1116" y="3378" class="tiny">reg_list → tpu_ctrl</text>
-<text x="1116" y="3409" class="sig" data-net="done_clear_ack">N086  done_clear_ack [1]</text>
-<text x="1116" y="3431" class="tiny">tpu_ctrl → reg_list</text>
+<g data-netgroup="doneclear"><rect x="1098" y="3123" width="1008" height="181" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="1098" y="3123" width="1008" height="51" rx="10" fill="#b7791f"/><text x="1116" y="3157" class="route-title" style="fill:white">B17 · DONE 软件清除请求 / 应答</text>
+<text x="1116" y="3204" class="sig" data-net="cpu_done_clear_req">N084  cpu_done_clear_req [1]</text>
+<text x="1116" y="3226" class="tiny">reg_list → tpu_ctrl</text>
+<text x="1116" y="3257" class="sig" data-net="done_clear_ack">N085  done_clear_ack [1]</text>
+<text x="1116" y="3279" class="tiny">tpu_ctrl → reg_list</text>
 </g>
 <g data-netgroup="regbus"><rect x="2132" y="1250" width="1008" height="340" rx="10" fill="#f8faff" stroke="#d4e0ee"/><rect x="2132" y="1250" width="1008" height="51" rx="10" fill="#1d4ed8"/><text x="2150" y="1284" class="route-title" style="fill:white">B02 · AHB_SLAVE ↔ REG_MAP</text>
 <text x="2150" y="1331" class="sig" data-net="ahb_rd_data">N023  ahb_rd_data [32]</text>
@@ -330,4 +326,4 @@
 <text x="2150" y="3356" class="sig" data-net="wr_tuser">N077  wr_tuser [1]</text>
 <text x="2150" y="3378" class="tiny">fifo2axi → EXT</text>
 </g>
-<text x="64" y="3520" class="sub">86 条具名信号 · 191 个模块端口映射 · 36 个顶层接口 · 全部已列出</text></svg>
+<text x="64" y="3467" class="sub">85 条具名信号 · 190 个模块端口映射 · 36 个顶层接口 · 全部已列出</text></svg>
