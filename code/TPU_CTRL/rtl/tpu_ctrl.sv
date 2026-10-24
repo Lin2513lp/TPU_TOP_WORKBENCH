@@ -11,9 +11,6 @@ module tpu_ctrl (
     input  wire logic tpu_rst_n,
     input  wire logic cpu_tpu_en,
     input  wire logic cpu_tpu_start,
-    // AHB-domain clear request toggle; CTRL returns the processed toggle.
-    input  wire logic cpu_done_clear_req,
-    output      logic done_clear_ack,
     // 静态配置接口：START 前到 DONE 期间保持稳定；H/W 使用尺寸减 1 编码。
     // 本 CTRL 不直接使用配置计算数据路径或计数，SA 使用配置完成计算。
     input  wire logic [1:0] cpu_cpt_mode,
@@ -33,7 +30,7 @@ module tpu_ctrl (
     // VALID=0 does not mean all lanes are empty; LAST is not lane15 tail.
     output      logic dat_in_vld,
     output      logic dat_in_last,
-    // Sticky DONE: fixed input tail + eligible SA LAST; next accepted START or W1C clears.
+    // Sticky DONE: fixed input tail + eligible SA LAST; reset or next accepted START clears.
     output      logic rpt_cpt_done,
     // 每次实际 FIFO 读取加 1，START 清零；相同输入三种 H/W 均应计数 16。
     output      logic [31:0] rpt_dat_in_cnt,
@@ -42,22 +39,6 @@ module tpu_ctrl (
     // 提前 SA LAST 的错误次数，最大为 7；regmap 字段为 rpt_error_state。
     output      logic [2:0] rpt_error_state
 );
-    (* async_reg = "true" *) logic done_clear_meta_q, done_clear_sync_q;
-    logic done_clear_event;
-    assign done_clear_event = done_clear_sync_q != done_clear_ack;
-    always_ff @(posedge sys_ckg or negedge tpu_rst_n) begin
-        if (!tpu_rst_n) begin
-            done_clear_meta_q <= 1'b0;
-            done_clear_sync_q <= 1'b0;
-            done_clear_ack <= 1'b0;
-        end else begin
-            done_clear_meta_q <= cpu_done_clear_req;
-            done_clear_sync_q <= done_clear_meta_q;
-            // Mismatch is processed exactly once, including after gated-clock wakeup.
-            done_clear_ack <= done_clear_sync_q;
-        end
-    end
-
     logic start_prev_q;
     logic task_active_q;
     logic input_last_seen_q;
@@ -109,7 +90,6 @@ module tpu_ctrl (
             rpt_cpt_done <= 1'b0;
         end else begin
             start_prev_q <= cpu_tpu_start_sync;
-            if (done_clear_event) rpt_cpt_done <= 1'b0;
             if (!cpu_tpu_en_sync) begin
                 task_active_q <= 1'b0;
                 input_last_seen_q <= 1'b0;
@@ -137,7 +117,6 @@ module tpu_ctrl (
                     output_last_seen_q <= 1'b1;
                 if ((skew_last_seen_q || (skew_dat_in_vld && skew_dat_in_last)) &&
                     (output_last_seen_q || (data_out_last && input_last_seen_q))) begin
-                    // A new completion wins a simultaneous software clear.
                     rpt_cpt_done <= 1'b1;
                     task_active_q <= 1'b0;
                 end

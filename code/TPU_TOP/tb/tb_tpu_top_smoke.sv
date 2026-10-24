@@ -69,12 +69,12 @@ module tb_tpu_top_smoke;
     );
 
     // phase: 0 reset, 1 config, 2 weights, 3 START, 4 RX/compute,
-    // 5 poll DONE, 6 report reads, 7 W1C, 8 complete.
+    // 5 poll DONE, 6 report reads, 7 DONE read-only check, 8 complete.
     logic [3:0] phase=0;
     int checks=0,rx_count=0,tx_count=0,tx_lasts=0,start_pulses=0;
     int arithmetic_lanes=0,start_accepts=0;
     bit observing=0,compute_seen=0,done_seen=0,start_prev=0;
-    time t_start=0,t_rx_first=0,t_rx_last=0,t_tx_first=0,t_tx_last=0,t_cpu_done=0,t_w1c=0;
+    time t_start=0,t_rx_first=0,t_rx_last=0,t_tx_first=0,t_tx_last=0,t_cpu_done=0,t_done_ro=0;
     logic [31:0] cpu_done_read=0;
     logic [511:0] expected_bus;
     string fsdb_file="waves/tpu_top_smoke.fsdb";
@@ -186,11 +186,11 @@ module tb_tpu_top_smoke;
         $display("SMOKE_PHASE RESET time=%0t",$time);
         repeat(5)@(negedge ahb_clk);sys_rst_n=1;
         repeat(10)@(negedge ahb_clk);
-        read_check('h104,0);
+        read_check('h104,0);read_check('h100,0);
         phase=1;$display("SMOKE_PHASE CONFIG time=%0t",$time);
         // Gates are closed from reset; size is encoded as dimension minus one.
         write_reg(4,3);write_reg(5,3);write_reg(6,1);write_reg(0,1);write_reg('h105,1);
-        read_check(6,1);
+        read_check(6,1);read_check('h100,0);
         phase=2;$display("SMOKE_PHASE WEIGHTS time=%0t",$time);
         for(int r=0;r<4;r++)begin
             write_reg(7,32'(r));
@@ -227,17 +227,16 @@ module tb_tpu_top_smoke;
         check(rx_count==4&&tx_count==7&&tx_lasts==1,"exact RX/TX counts and one LAST");
         check(start_pulses==1&&arithmetic_lanes==16,"one SYS START edge and16 independently checked result lanes");
         check(start_accepts==1,"CTRL accepts exactly one task from synchronized START");
-        phase=7;t_w1c=$time;$display("SMOKE_PHASE W1C time=%0t",$time);
+        phase=7;t_done_ro=$time;$display("SMOKE_PHASE DONE_READ_ONLY time=%0t",$time);
         write_reg('h104,1);#200;
-        read_check('h104,0);read_check('h100,'h00040004);read_check('h101,7);read_check('h102,4);
-        check(dut.u_reg.cpu_done_clear_req===dut.u_reg.done_clear_ack&&
-              dut.u_reg.cpu_done_clear_req===dut.u_reg.done_clear_ack_sync_q,
-              "W1C request processed by CTRL and acknowledgment synchronized in reg_list");
+        read_check('h104,1);read_check('h100,'h00040004);read_check('h101,7);read_check('h102,4);
+        check(dut.u_ctrl.rpt_cpt_done===1'b1,
+              "writing DONE does not clear the read-only completion state");
         observing=0;phase=8;
         write_reg('h105,0);#100;
-        check(!dut.sys_ckg,"SYS clock closes after completed work and clear");
-        $display("SMOKE_TIMES start=%0t rx_first=%0t rx_last=%0t tx_first=%0t tx_last=%0t cpu_done=%0t w1c=%0t",
-                 t_start,t_rx_first,t_rx_last,t_tx_first,t_tx_last,t_cpu_done,t_w1c);
+        check(!dut.sys_ckg,"SYS clock closes after completed work");
+        $display("SMOKE_TIMES start=%0t rx_first=%0t rx_last=%0t tx_first=%0t tx_last=%0t cpu_done=%0t done_ro=%0t",
+                 t_start,t_rx_first,t_rx_last,t_tx_first,t_tx_last,t_cpu_done,t_done_ro);
         $display("TPU_TOP_SMOKE_PASS checks=%0d rx_beats=%0d tx_beats=%0d arithmetic_lanes=%0d start_edges=%0d start_accepts=%0d",
                  checks,rx_count,tx_count,arithmetic_lanes,start_pulses,start_accepts);
         #50;$finish;

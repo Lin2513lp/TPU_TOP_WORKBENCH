@@ -52,6 +52,25 @@ module sa_top #(
     logic [DATA_WIDTH*ARRAY_W-1:0]         raw_dat_out;
     logic [ARRAY_W-1:0]                    raw_dat_out_vld;
 
+    // Reporting only: configuration remains live on the unchanged datapath.
+    logic [31:0] configured_active_size;
+    logic report_en_prev_q, report_start_prev_q;
+    always_ff @(posedge sys_ckg or negedge tpu_rst_n) begin
+        if (!tpu_rst_n) begin
+            report_en_prev_q <= 1'b0;
+            report_start_prev_q <= 1'b0;
+            rpt_active_size <= 32'b0;
+        end else begin
+            report_en_prev_q <= cpu_tpu_en_sync;
+            report_start_prev_q <= cpu_tpu_start_sync;
+            // A valid START wins if EN and START rise together.
+            if (cpu_tpu_en_sync && cpu_tpu_start_sync && !report_start_prev_q)
+                rpt_active_size <= configured_active_size;
+            else if (cpu_tpu_en_sync && !report_en_prev_q)
+                rpt_active_size <= 32'b0;
+        end
+    end
+
     // dat_in_vld/LAST are CTRL-owned lane0 markers; dat_in_a stays skewed.
     // Recreate the former OR over physical skew lanes for the unchanged PE path.
     logic skew_dat_in_vld;
@@ -97,7 +116,7 @@ module sa_top #(
         .cpu_h_size,
         .cpu_w_size,
         .cpu_cpt_mode,
-        .rpt_active_size,
+        .rpt_active_size (configured_active_size),
         .pe_tpu_rst_n,
         .pe_ckg_out    (pe_ckg_bus),
         .pe_cpt_mode,

@@ -1,572 +1,144 @@
 {
-  "date": "2026-10-24",
-  "compile": "PASS",
-  "strictSimulation": "PASS",
-  "checks": 107,
-  "rxBeats": 4,
-  "txBeats": 7,
-  "arithmeticLanes": 16,
-  "externalPorts": 36,
-  "displayedSignals": 36,
-  "simulator": "VCS V-2023.12-SP2",
-  "viewer": "Verdi V-2023.12-SP2 nWave",
-  "fsdbSha256": "9418e33b0d630f63678a1c2bd31c507f7fb19366a447fdd0137e82f095fb5583",
-  "runDir": "/home/yian/tpu_top_runs/ctrl_sa_markers_18ports_20261024",
-  "makeExitCode": 0,
-  "nativeCapture": {
-    "sourceFsdbSha256": "9418e33b0d630f63678a1c2bd31c507f7fb19366a447fdd0137e82f095fb5583",
-    "ports": 36,
-    "nativeWindow": [
-      1800,
-      880
-    ],
-    "signalHeight": 22,
-    "screenshots": [
-      {
-        "name": "top_compute.png",
-        "sha256": "3dde1bd4ede0a273fb3e550356343d3b6d2f2e97efd1607acaa79270b979ba35"
-      },
-      {
-        "name": "top_full.png",
-        "sha256": "ded7bfcd3cd24b4a10b528c63c5f2b383ed9713fc93855ff0a003abb8e44017a"
-      },
-      {
-        "name": "top_input.png",
-        "sha256": "31eda02cdbc63169b30975ed51680ac08961b38d0a8a0843a9cc9f3048dbcc60"
-      },
-      {
-        "name": "top_w1c.png",
-        "sha256": "0af603e0c06aac0e51f29a7468f48ee5237a206b515459de1e406206ba345425"
-      }
-    ],
-    "applicationScale": 1,
-    "imageResampled": false,
-    "desktopScaleSettings": {
-      "scaling-factor": "uint32 0",
-      "text-scaling-factor": "1.0"
+  "result": "PASS",
+  "checks": 111,
+  "marker": "TPU_TOP_SMOKE_PASS checks=111 rx_beats=4 tx_beats=7 arithmetic_lanes=16 start_edges=1 start_accepts=1",
+  "tool": "VCS V-2023.12-SP2",
+  "fsdbSha256": "954a26254843667190c344d3af4d99d69b4db28c986c6beb8859537f52a65e24",
+  "sourceHashes": [
+    {
+      "relative": "../AHB_SLAVE/ahb_slave.sv",
+      "path": "/mnt/hgfs/share/tpu/tpu/AHB_SLAVE/ahb_slave.sv",
+      "sha256": "1d624c4866f40e7dcc124859776e011c9be1cd21c00d3d7be0203cec45b5cdc5"
     },
-    "sourceSimulation": "VCS107PASS; existing tested FSDB; RTL/TB unchanged"
-  },
-  "timelineVerification": {
-    "vcdSha256": "e2a11b501dc45fe11b87f3b3207789d00ef57e18e28f8e47c8e785f4d611a764",
-    "ahbTransfers": [
-      {
-        "startNs": 160.0,
-        "completeNs": 185.0,
-        "operation": "读",
-        "address": "0x410",
-        "data": "0x00000000",
-        "verified": true
-      },
-      {
-        "startNs": 200.0,
-        "completeNs": 225.0,
-        "operation": "写",
-        "address": "0x010",
-        "data": "0x00000003",
-        "verified": true
-      },
-      {
-        "startNs": 240.0,
-        "completeNs": 265.0,
-        "operation": "写",
-        "address": "0x014",
-        "data": "0x00000003",
-        "verified": true
-      },
-      {
-        "startNs": 280.0,
-        "completeNs": 305.0,
-        "operation": "写",
-        "address": "0x018",
-        "data": "0x00000001",
-        "verified": true
-      },
-      {
-        "startNs": 320.0,
-        "completeNs": 345.0,
-        "operation": "写",
-        "address": "0x000",
-        "data": "0x00000001",
-        "verified": true
-      },
-      {
-        "startNs": 360.0,
-        "completeNs": 385.0,
-        "operation": "写",
-        "address": "0x414",
-        "data": "0x00000001",
-        "verified": true
-      },
-      {
-        "startNs": 400.0,
-        "completeNs": 425.0,
-        "operation": "读",
-        "address": "0x018",
-        "data": "0x00000001",
-        "verified": true
-      },
-      {
-        "startNs": 440.0,
-        "completeNs": 465.0,
-        "operation": "写",
-        "address": "0x01C",
-        "data": "0x00000000",
-        "verified": true
-      },
-      {
-        "startNs": 480.0,
-        "completeNs": 505.0,
-        "operation": "写",
-        "address": "0x024",
-        "data": "0x00000001",
-        "verified": true
-      },
-      {
-        "startNs": 520.0,
-        "completeNs": 545.0,
-        "operation": "写",
-        "address": "0x028",
-        "data": "0x00000002",
-        "verified": true
-      },
-      {
-        "startNs": 560.0,
-        "completeNs": 585.0,
-        "operation": "写",
-        "address": "0x02C",
-        "data": "0x00000003",
-        "verified": true
-      },
-      {
-        "startNs": 600.0,
-        "completeNs": 625.0,
-        "operation": "写",
-        "address": "0x030",
-        "data": "0x00000004",
-        "verified": true
-      },
-      {
-        "startNs": 640.0,
-        "completeNs": 665.0,
-        "operation": "写",
-        "address": "0x020",
-        "data": "0x00000001",
-        "verified": true
-      },
-      {
-        "startNs": 880.0,
-        "completeNs": 905.0,
-        "operation": "写",
-        "address": "0x01C",
-        "data": "0x00000001",
-        "verified": true
-      },
-      {
-        "startNs": 920.0,
-        "completeNs": 945.0,
-        "operation": "写",
-        "address": "0x024",
-        "data": "0x00000002",
-        "verified": true
-      },
-      {
-        "startNs": 960.0,
-        "completeNs": 985.0,
-        "operation": "写",
-        "address": "0x028",
-        "data": "0x00000003",
-        "verified": true
-      },
-      {
-        "startNs": 1000.0,
-        "completeNs": 1025.0,
-        "operation": "写",
-        "address": "0x02C",
-        "data": "0x00000004",
-        "verified": true
-      },
-      {
-        "startNs": 1040.0,
-        "completeNs": 1065.0,
-        "operation": "写",
-        "address": "0x030",
-        "data": "0x00000005",
-        "verified": true
-      },
-      {
-        "startNs": 1080.0,
-        "completeNs": 1105.0,
-        "operation": "写",
-        "address": "0x020",
-        "data": "0x00000001",
-        "verified": true
-      },
-      {
-        "startNs": 1320.0,
-        "completeNs": 1345.0,
-        "operation": "写",
-        "address": "0x01C",
-        "data": "0x00000002",
-        "verified": true
-      },
-      {
-        "startNs": 1360.0,
-        "completeNs": 1385.0,
-        "operation": "写",
-        "address": "0x024",
-        "data": "0x00000003",
-        "verified": true
-      },
-      {
-        "startNs": 1400.0,
-        "completeNs": 1425.0,
-        "operation": "写",
-        "address": "0x028",
-        "data": "0x00000004",
-        "verified": true
-      },
-      {
-        "startNs": 1440.0,
-        "completeNs": 1465.0,
-        "operation": "写",
-        "address": "0x02C",
-        "data": "0x00000005",
-        "verified": true
-      },
-      {
-        "startNs": 1480.0,
-        "completeNs": 1505.0,
-        "operation": "写",
-        "address": "0x030",
-        "data": "0x00000006",
-        "verified": true
-      },
-      {
-        "startNs": 1520.0,
-        "completeNs": 1545.0,
-        "operation": "写",
-        "address": "0x020",
-        "data": "0x00000001",
-        "verified": true
-      },
-      {
-        "startNs": 1760.0,
-        "completeNs": 1785.0,
-        "operation": "写",
-        "address": "0x01C",
-        "data": "0x00000003",
-        "verified": true
-      },
-      {
-        "startNs": 1800.0,
-        "completeNs": 1825.0,
-        "operation": "写",
-        "address": "0x024",
-        "data": "0x00000004",
-        "verified": true
-      },
-      {
-        "startNs": 1840.0,
-        "completeNs": 1865.0,
-        "operation": "写",
-        "address": "0x028",
-        "data": "0x00000005",
-        "verified": true
-      },
-      {
-        "startNs": 1880.0,
-        "completeNs": 1905.0,
-        "operation": "写",
-        "address": "0x02C",
-        "data": "0x00000006",
-        "verified": true
-      },
-      {
-        "startNs": 1920.0,
-        "completeNs": 1945.0,
-        "operation": "写",
-        "address": "0x030",
-        "data": "0x00000007",
-        "verified": true
-      },
-      {
-        "startNs": 1960.0,
-        "completeNs": 1985.0,
-        "operation": "写",
-        "address": "0x020",
-        "data": "0x00000001",
-        "verified": true
-      },
-      {
-        "startNs": 2200.0,
-        "completeNs": 2225.0,
-        "operation": "读",
-        "address": "0x024",
-        "data": "0x00000004",
-        "verified": true
-      },
-      {
-        "startNs": 2240.0,
-        "completeNs": 2265.0,
-        "operation": "读",
-        "address": "0x030",
-        "data": "0x00000007",
-        "verified": true
-      },
-      {
-        "startNs": 2280.0,
-        "completeNs": 2305.0,
-        "operation": "写",
-        "address": "0x008",
-        "data": "0x00000001",
-        "verified": true
-      },
-      {
-        "startNs": 2530.0,
-        "completeNs": 2555.0,
-        "operation": "读",
-        "address": "0x410",
-        "data": "0x00000000",
-        "verified": true
-      },
-      {
-        "startNs": 2570.0,
-        "completeNs": 2595.0,
-        "operation": "读",
-        "address": "0x410",
-        "data": "0x00000001",
-        "verified": true
-      },
-      {
-        "startNs": 2610.0,
-        "completeNs": 2635.0,
-        "operation": "读",
-        "address": "0x400",
-        "data": "0x00040004",
-        "verified": true
-      },
-      {
-        "startNs": 2650.0,
-        "completeNs": 2675.0,
-        "operation": "读",
-        "address": "0x404",
-        "data": "0x00000007",
-        "verified": true
-      },
-      {
-        "startNs": 2690.0,
-        "completeNs": 2715.0,
-        "operation": "读",
-        "address": "0x408",
-        "data": "0x00000004",
-        "verified": true
-      },
-      {
-        "startNs": 2730.0,
-        "completeNs": 2755.0,
-        "operation": "读",
-        "address": "0x40C",
-        "data": "0x00000000",
-        "verified": true
-      },
-      {
-        "startNs": 2770.0,
-        "completeNs": 2795.0,
-        "operation": "读",
-        "address": "0x418",
-        "data": "0x00000000",
-        "verified": true
-      },
-      {
-        "startNs": 2810.0,
-        "completeNs": 2835.0,
-        "operation": "读",
-        "address": "0x410",
-        "data": "0x00000001",
-        "verified": true
-      },
-      {
-        "startNs": 2950.0,
-        "completeNs": 2975.0,
-        "operation": "读",
-        "address": "0x410",
-        "data": "0x00000001",
-        "verified": true
-      },
-      {
-        "startNs": 2990.0,
-        "completeNs": 3015.0,
-        "operation": "写",
-        "address": "0x410",
-        "data": "0x00000001",
-        "verified": true
-      },
-      {
-        "startNs": 3230.0,
-        "completeNs": 3255.0,
-        "operation": "读",
-        "address": "0x410",
-        "data": "0x00000000",
-        "verified": true
-      },
-      {
-        "startNs": 3270.0,
-        "completeNs": 3295.0,
-        "operation": "读",
-        "address": "0x400",
-        "data": "0x00040004",
-        "verified": true
-      },
-      {
-        "startNs": 3310.0,
-        "completeNs": 3335.0,
-        "operation": "读",
-        "address": "0x404",
-        "data": "0x00000007",
-        "verified": true
-      },
-      {
-        "startNs": 3350.0,
-        "completeNs": 3375.0,
-        "operation": "读",
-        "address": "0x408",
-        "data": "0x00000004",
-        "verified": true
-      },
-      {
-        "startNs": 3390.0,
-        "completeNs": 3415.0,
-        "operation": "写",
-        "address": "0x414",
-        "data": "0x00000000",
-        "verified": true
-      }
-    ],
-    "risingEdgesNs": {
-      "sys_rst_n": 50.0,
-      "rd_tvalid": 2517.5,
-      "dut.dat_out_vld": 2528.75,
-      "dut.dat_out_last": 2543.75,
-      "dut.compute_done_sys": 2566.25,
-      "done_seen": 2575.2,
-      "dut.cpu_done_clear_req": 3015.0,
-      "dut.done_clear_ack": 3021.25
+    {
+      "relative": "../TPU_CTRL/rtl/reg_list.sv",
+      "path": "/mnt/hgfs/share/tpu/tpu/TPU_CTRL/rtl/reg_list.sv",
+      "sha256": "af9aa9392c6b60ffe5dfed156f7bbf93402dbcf63723acb1452e6b722678f7a3"
     },
-    "rx": [
-      {
-        "ns": 2518.75,
-        "lanes": [
-          1,
-          2,
-          3,
-          4
-        ],
-        "last": 0
-      },
-      {
-        "ns": 2521.25,
-        "lanes": [
-          2,
-          4,
-          6,
-          8
-        ],
-        "last": 0
-      },
-      {
-        "ns": 2523.75,
-        "lanes": [
-          3,
-          6,
-          9,
-          12
-        ],
-        "last": 0
-      },
-      {
-        "ns": 2526.25,
-        "lanes": [
-          4,
-          8,
-          12,
-          16
-        ],
-        "last": 1
-      }
-    ],
-    "tx": [
-      {
-        "ns": 2536.25,
-        "lanes": [
-          30,
-          0,
-          0,
-          0
-        ],
-        "last": 0
-      },
-      {
-        "ns": 2538.75,
-        "lanes": [
-          60,
-          40,
-          0,
-          0
-        ],
-        "last": 0
-      },
-      {
-        "ns": 2541.25,
-        "lanes": [
-          90,
-          80,
-          50,
-          0
-        ],
-        "last": 0
-      },
-      {
-        "ns": 2543.75,
-        "lanes": [
-          120,
-          120,
-          100,
-          60
-        ],
-        "last": 0
-      },
-      {
-        "ns": 2546.25,
-        "lanes": [
-          0,
-          160,
-          150,
-          120
-        ],
-        "last": 0
-      },
-      {
-        "ns": 2548.75,
-        "lanes": [
-          0,
-          0,
-          200,
-          180
-        ],
-        "last": 0
-      },
-      {
-        "ns": 2551.25,
-        "lanes": [
-          0,
-          0,
-          0,
-          240
-        ],
-        "last": 1
-      }
-    ],
-    "status": "PASS"
-  }
+    {
+      "relative": "../TPU_CRG/rtl/rst_sync.sv",
+      "path": "/mnt/hgfs/share/tpu/tpu/TPU_CRG/rtl/rst_sync.sv",
+      "sha256": "7e4e783a208c1f52c2f4cd1c46a27178e7b1a94e0e0012d0811dc0e60fa141a4"
+    },
+    {
+      "relative": "../TPU_CRG/rtl/crg_icg.sv",
+      "path": "/mnt/hgfs/share/tpu/tpu/TPU_CRG/rtl/crg_icg.sv",
+      "sha256": "10ec2716b49a379630a537bf9233f7e775ce902115c10cda92fc7197701ce0d0"
+    },
+    {
+      "relative": "../TPU_CRG/rtl/sys_clk_crg.sv",
+      "path": "/mnt/hgfs/share/tpu/tpu/TPU_CRG/rtl/sys_clk_crg.sv",
+      "sha256": "039f8f02c2b45a9d9750f84807822313e401e3680ca261bcb4f73308af211e9b"
+    },
+    {
+      "relative": "../TPU_CRG/rtl/pe_crg.sv",
+      "path": "/mnt/hgfs/share/tpu/tpu/TPU_CRG/rtl/pe_crg.sv",
+      "sha256": "da80b213e5ed4d99797679576fada118cded13075f6e062ffeaf96c4305e8ff8"
+    },
+    {
+      "relative": "../TPU_CRG/rtl/tpu_crg.sv",
+      "path": "/mnt/hgfs/share/tpu/tpu/TPU_CRG/rtl/tpu_crg.sv",
+      "sha256": "5ea589f7531e6c871b1522c97605e6565a4fbc077efbbc0f018f4f7d242a6e02"
+    },
+    {
+      "relative": "../AXI_TOP/AXI_M_TOP/rtl/fifo_in.sv",
+      "path": "/mnt/hgfs/share/tpu/tpu/AXI_TOP/AXI_M_TOP/rtl/fifo_in.sv",
+      "sha256": "6179df997e928b25a4b2e37f30cd309acf32ffff4dff53a6c88b03725ad1eea1"
+    },
+    {
+      "relative": "../AXI_TOP/AXI_M_TOP/rtl/axi2fifo.sv",
+      "path": "/mnt/hgfs/share/tpu/tpu/AXI_TOP/AXI_M_TOP/rtl/axi2fifo.sv",
+      "sha256": "e06063c4abecbb5c33e83d7786083628c2ff82e6d0f47dd536789bbbe7679524"
+    },
+    {
+      "relative": "../AXI_TOP/AXI_M_TOP/rtl/AXI_M_TOP.sv",
+      "path": "/mnt/hgfs/share/tpu/tpu/AXI_TOP/AXI_M_TOP/rtl/AXI_M_TOP.sv",
+      "sha256": "8a1190f446b3474894acb827321d6f7ae45b32dddf6de2ffacb8299454d89438"
+    },
+    {
+      "relative": "../AXI_TOP/AXI_S_TOP/rtl/fifo_out.sv",
+      "path": "/mnt/hgfs/share/tpu/tpu/AXI_TOP/AXI_S_TOP/rtl/fifo_out.sv",
+      "sha256": "07a98d3311f3b407317fb6a242949f4f081b866d1a3ada7e44bbb8354aa3576d"
+    },
+    {
+      "relative": "../AXI_TOP/AXI_S_TOP/rtl/fifo2axi.sv",
+      "path": "/mnt/hgfs/share/tpu/tpu/AXI_TOP/AXI_S_TOP/rtl/fifo2axi.sv",
+      "sha256": "bf4dc6bc445cb658844a126463c1708272201fb13fb2c08a46330a330bf9dd7c"
+    },
+    {
+      "relative": "../AXI_TOP/AXI_S_TOP/rtl/AXI_S_TOP.sv",
+      "path": "/mnt/hgfs/share/tpu/tpu/AXI_TOP/AXI_S_TOP/rtl/AXI_S_TOP.sv",
+      "sha256": "772364dea2377d6e05ca0fcc8c5724c125cd8cf9182ee2781d375bf7522e299b"
+    },
+    {
+      "relative": "../sa/rtl/pe_mp/fp32_adder.v",
+      "path": "/mnt/hgfs/share/tpu/tpu/sa/rtl/pe_mp/fp32_adder.v",
+      "sha256": "be3d1061521a02963f44f965b6034e90f9fda616e26379ab0ef536468d2eed19"
+    },
+    {
+      "relative": "../sa/rtl/pe_mp/fp32_multi.v",
+      "path": "/mnt/hgfs/share/tpu/tpu/sa/rtl/pe_mp/fp32_multi.v",
+      "sha256": "79a83d9179c30b54a73195bb1195df5477449b65d234b90e46aaf45843bd9da5"
+    },
+    {
+      "relative": "../sa/rtl/pe_mp/fp2fix.v",
+      "path": "/mnt/hgfs/share/tpu/tpu/sa/rtl/pe_mp/fp2fix.v",
+      "sha256": "0ebd6e23b9e22b2ee633f023bf707aeaf88af0eab3c9be36c27f62cf24078293"
+    },
+    {
+      "relative": "../sa/rtl/pe_mp/fix2fp.v",
+      "path": "/mnt/hgfs/share/tpu/tpu/sa/rtl/pe_mp/fix2fp.v",
+      "sha256": "fbe9ed0e6a45c1aafc4165df6efed185418942b58573248bfa6d1f0537e7ac72"
+    },
+    {
+      "relative": "../sa/rtl/pe_mp/PE_MP_v1.v",
+      "path": "/mnt/hgfs/share/tpu/tpu/sa/rtl/pe_mp/PE_MP_v1.v",
+      "sha256": "215c2b8601547f0cc03be317cbbb98e2eab048d0f8985bd37702c3484abfb447"
+    },
+    {
+      "relative": "../sa/rtl/sa_ctrl.sv",
+      "path": "/mnt/hgfs/share/tpu/tpu/sa/rtl/sa_ctrl.sv",
+      "sha256": "26221e2528b85905b3f5421411f4ee9359f44dba93298a1e15dec92855c1791d"
+    },
+    {
+      "relative": "../sa/rtl/pe_array_16x16.sv",
+      "path": "/mnt/hgfs/share/tpu/tpu/sa/rtl/pe_array_16x16.sv",
+      "sha256": "affc351187bc3714e9bbfd6e6189cd56362710d925bf88bec5f5296dff5f0ef8"
+    },
+    {
+      "relative": "../sa/rtl/output_collector.sv",
+      "path": "/mnt/hgfs/share/tpu/tpu/sa/rtl/output_collector.sv",
+      "sha256": "af5533d9cfde001ea51df1e2092ef95fe96471dae236a0554e091c4de670ec26"
+    },
+    {
+      "relative": "../sa/rtl/sa_top.sv",
+      "path": "/mnt/hgfs/share/tpu/tpu/sa/rtl/sa_top.sv",
+      "sha256": "a52ca2f898f54fc35209218713bbd0c846a261323c93a5cf7dd19b7cba90d8b8"
+    },
+    {
+      "relative": "../TPU_CTRL/rtl/tpu_ctrl_sync.sv",
+      "path": "/mnt/hgfs/share/tpu/tpu/TPU_CTRL/rtl/tpu_ctrl_sync.sv",
+      "sha256": "62ff5530ea9241dd6c009b72ec42812c92904e5a18ab2364d9a3cded95ff525e"
+    },
+    {
+      "relative": "../TPU_CTRL/rtl/tpu_ctrl_skew.sv",
+      "path": "/mnt/hgfs/share/tpu/tpu/TPU_CTRL/rtl/tpu_ctrl_skew.sv",
+      "sha256": "811490b07902c26011e0ffd5da27b541d2ed0d64b4c7494164092cebe7257f32"
+    },
+    {
+      "relative": "../TPU_CTRL/rtl/tpu_ctrl.sv",
+      "path": "/mnt/hgfs/share/tpu/tpu/TPU_CTRL/rtl/tpu_ctrl.sv",
+      "sha256": "b42b49546fde17d5c2d24def9a872e9d55d36fef73e2b5ba5a227b41ff4480fa"
+    },
+    {
+      "relative": "rtl/tpu_top.sv",
+      "path": "/mnt/hgfs/share/tpu/tpu/TPU_TOP/rtl/tpu_top.sv",
+      "sha256": "42825be4453d3167d69a0fff7f4f21812ef7b7752786664ce4f64f2d4e9835e8"
+    },
+    {
+      "relative": "tb/tb_tpu_top_smoke.sv",
+      "path": "/mnt/hgfs/share/tpu/tpu/TPU_TOP/tb/tb_tpu_top_smoke.sv",
+      "sha256": "4157e6fe5ceb95de13687200e0180ee9008c184e2b171c76305c9f479e8a2027"
+    }
+  ]
 }

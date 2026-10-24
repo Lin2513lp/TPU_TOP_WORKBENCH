@@ -24,9 +24,6 @@ module reg_list (
     output logic [3:0]  cpu_dat_in_b_sel,
     output logic        cpu_dat_in_b_lock,
     output logic        cpu_tpu_crg_en,
-    /* W1C request toggle: held until CTRL acknowledges, safe with SYS gated. */
-    output logic        cpu_done_clear_req,
-    input  wire logic   done_clear_ack,
     output logic [511:0] cpu_dat_in_b,
 
     /* Read-only status must already be coherent in hclk domain. */
@@ -73,25 +70,7 @@ module reg_list (
     localparam logic [9:0] ADDR_TPU_CRG_EN      = 10'h105;
     localparam logic [9:0] ADDR_RPT_ERROR       = 10'h106;
 
-    (* async_reg = "true" *) logic done_clear_ack_meta_q, done_clear_ack_sync_q;
-    logic done_clear_write;
-    assign done_clear_write = ahb_wr_en && (ahb_addr == ADDR_RPT_DONE) && ahb_wr_data[0];
-
-    // Toggle handshake: a request cannot disappear while sys_ckg is stopped.
-    // Repeated W1C writes while outstanding coalesce into the same clear.
-    // The SYS side acknowledges processing; DONE readback has separate CDC latency.
-    always_ff @(posedge hclk or negedge hrstn) begin
-        if (!hrstn) begin
-            done_clear_ack_meta_q <= 1'b0;
-            done_clear_ack_sync_q <= 1'b0;
-            cpu_done_clear_req <= 1'b0;
-        end else begin
-            done_clear_ack_meta_q <= done_clear_ack;
-            done_clear_ack_sync_q <= done_clear_ack_meta_q;
-            if (done_clear_write && (cpu_done_clear_req == done_clear_ack_sync_q))
-                cpu_done_clear_req <= !cpu_done_clear_req;
-        end
-    end
+    // DONE is read-only; writes to ADDR_RPT_DONE are ignored.
 
     always_ff @(posedge hclk or negedge hrstn) begin
         if (!hrstn) begin

@@ -1,22 +1,22 @@
 {
   "workbench": "TPU_TOP_WORKBENCH.html",
-  "workbenchSha256": "7883d53ece4df1e7772e2310da66d175cf3d0d4d18ccedf2bc5c5aa6cb36a31b",
-  "revision": "0.8",
+  "workbenchSha256": "e87802b2daca28fb322b0ab918a92a979340017bfd458f9a056c610c5ce8c10a",
+  "revision": "0.9",
   "sources": [
     {
       "name": "TPU_TOP/rtl/tpu_top.sv",
-      "sha256": "aeac27076bc47f525fe30c3683d70f75653011a966c21e527a0e82f98a4ac8c0",
-      "bytes": 8334
+      "sha256": "42825be4453d3167d69a0fff7f4f21812ef7b7752786664ce4f64f2d4e9835e8",
+      "bytes": 8103
     },
     {
       "name": "AHB_SLAVE/ahb_slave.sv",
-      "sha256": "1b2bbdde4502c55861759345825ab27f0b13cedb77fedadbb1c0347556ab013a",
-      "bytes": 8758
+      "sha256": "1d624c4866f40e7dcc124859776e011c9be1cd21c00d3d7be0203cec45b5cdc5",
+      "bytes": 8757
     },
     {
       "name": "TPU_CTRL/rtl/reg_list.sv",
-      "sha256": "b02a7f12b775db51bba790b69aaee33b26b09ee4b55774e2cbe973d287fa6f0b",
-      "bytes": 14872
+      "sha256": "af9aa9392c6b60ffe5dfed156f7bbf93402dbcf63723acb1452e6b722678f7a3",
+      "bytes": 13808
     },
     {
       "name": "TPU_CRG/rtl/rst_sync.sv",
@@ -115,8 +115,8 @@
     },
     {
       "name": "sa/rtl/sa_top.sv",
-      "sha256": "b4f3a68f54b9b4140fd91a9d30bd5a2617513d628558ac1cdfc00aa7ab6b1827",
-      "bytes": 5720
+      "sha256": "a52ca2f898f54fc35209218713bbd0c846a261323c93a5cf7dd19b7cba90d8b8",
+      "bytes": 6590
     },
     {
       "name": "TPU_CTRL/rtl/tpu_ctrl_sync.sv",
@@ -130,13 +130,13 @@
     },
     {
       "name": "TPU_CTRL/rtl/tpu_ctrl.sv",
-      "sha256": "36e8b638c1a6de2e0631cdb300a61b13ae087f9d585dbd8dd978bcfe04012602",
-      "bytes": 8277
+      "sha256": "b42b49546fde17d5c2d24def9a872e9d55d36fef73e2b5ba5a227b41ff4480fa",
+      "bytes": 7314
     },
     {
       "name": "TPU_TOP/tb/tb_tpu_top_smoke.sv",
-      "sha256": "43f0f372839e8637232918cbbeafd27310c2b07a90e3e5fa7fbc03527c6a380f",
-      "bytes": 10839
+      "sha256": "4157e6fe5ceb95de13687200e0180ee9008c184e2b171c76305c9f479e8a2027",
+      "bytes": 10794
     }
   ]
 }

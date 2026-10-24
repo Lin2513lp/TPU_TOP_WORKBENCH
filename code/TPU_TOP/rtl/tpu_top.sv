@@ -62,8 +62,7 @@ module tpu_top (
     logic [31:0] ahb_wr_data, ahb_rd_data;
     logic ahb_wr_en, ahb_rd_en;
     logic cpu_tpu_en, cpu_sw_rst, cpu_tpu_start, cpu_tpu_crg_bypass;
-    logic cpu_tpu_crg_en, cpu_dat_in_b_lock, cpu_done_clear_req;
-    logic done_clear_ack;
+    logic cpu_tpu_crg_en, cpu_dat_in_b_lock;
     logic [3:0] cpu_h_size, cpu_w_size, cpu_dat_in_b_sel;
     logic [1:0] cpu_cpt_mode;
     logic [511:0] cpu_dat_in_b;
@@ -123,8 +122,6 @@ module tpu_top (
         .cpu_dat_in_b_sel(cpu_dat_in_b_sel),
         .cpu_dat_in_b_lock(cpu_dat_in_b_lock),
         .cpu_tpu_crg_en(cpu_tpu_crg_en),
-        .cpu_done_clear_req(cpu_done_clear_req),
-        .done_clear_ack(done_clear_ack),
         .cpu_dat_in_b(cpu_dat_in_b),
         .rpt_active_size(rpt_active_size_sys),
         .rpt_cpt_cyc(rpt_cpt_cyc_sys),
@@ -176,8 +173,6 @@ module tpu_top (
         .tpu_rst_n(tpu_rst_n),
         .cpu_tpu_en(cpu_tpu_en),
         .cpu_tpu_start(cpu_tpu_start),
-        .cpu_done_clear_req(cpu_done_clear_req),
-        .done_clear_ack(done_clear_ack),
         .cpu_cpt_mode(cpu_cpt_mode),
         .cpu_h_size(cpu_h_size),
         .cpu_w_size(cpu_w_size),

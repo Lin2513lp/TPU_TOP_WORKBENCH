@@ -33,11 +33,13 @@ Open the workbench to browse the report, code and waveforms. Simulation uses the
 
 ## Latest simulation update
 
-The unchanged strict TOP smoke now passes **107 checks** in VM VCS: four input beats, seven output beats, sixteen independent arithmetic results, LAST, AHB reports and W1C. This is new evidence for the existing-pin marker correction, not a reused historical result.
+The current TOP smoke passes **111 checks** in VM VCS: four input beats, seven output beats, sixteen independent arithmetic results, LAST and AHB reports. DONE is read-only; writing one leaves it set. The two software-clear handshake ports and all associated logic are removed.
 
-Six SA top tests and three units also pass. A dual real-FIFO / CTRL / SA comparison covers 108 tasks across four modes, three sizes and multiple lengths/gaps, checking data, PE valid, output timing and DONE against the pre-midnight version. Only two RTL modules change relative to that version. PE arithmetic, SA_CTRL, Skew numeric data and the collector are byte-identical; SA adds 15 control bits and no numeric delay. Existing VALID/LAST timing semantics are explicitly documented.
+SA active-size reporting resets to zero, clears on an EN rising edge and latches actual H/W on START. TOP checks zero both after reset and before START, then 4 x 4 after START. Existing configuration defaults and numeric datapaths are unchanged. TB edits are limited to the requested reporting/control changes.
 
-The [simulation report](https://lin2513lp.github.io/TPU_TOP_WORKBENCH/TPU_TOP_WORKBENCH.html#smoke-waveform) provides current native Verdi screenshots, VCD and raw VCS logs.
+All 14 directed VCS tests pass: TOP, four CTRL/regmap tests, six SA top tests and three SA unit tests. Current native detail captures and logs match the tested source hashes; the supplied primary screenshot is preserved as a reference from the prior run.
+
+The [simulation report](https://lin2513lp.github.io/TPU_TOP_WORKBENCH/TPU_TOP_WORKBENCH.html#smoke-waveform) provides current native screenshots, VCD and VCS logs.
 
 ## Related workbenches
 
