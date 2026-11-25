@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="4400" height="5278" viewBox="0 0 4400 5278" data-crossing-count="24" data-overlapping-tracks="0" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="4400" height="8696" viewBox="0 0 4400 8696" data-crossing-count="24" data-overlapping-tracks="0" role="img" aria-labelledby="title desc">
 <title id="title">TPU_TOP 完整模块连接与信号总图</title><desc id="desc">保留CPU配置在上、计算通路在下的布局；扩大画布和模块间距，独立布线。实心点表示分支连接，跨线弧表示交叉但不连接。下方完整展开全部具名信号。</desc>
 <style>text{font-family:Consolas,"Microsoft YaHei",monospace;fill:#23334d}.title{font-size:44px;font-weight:700}.sub{font-size:26px;fill:#64748b}.block-title{font-size:32px;font-weight:700}.detail{font-size:25px}.route-title{font-size:28px;font-weight:700}.sig{font-size:24px}.tiny{font-size:20px;fill:#64748b}.box{fill:white;stroke:#b8c9df;stroke-width:2}.block{cursor:pointer}.block:hover .box{stroke-width:4}.dashed{stroke-dasharray:9 7}.wire-label{font-size:23px;font-weight:600}</style>
 <rect width="4400" height="5000" fill="#f8faff"/>
@@ -193,204 +193,205 @@
 <g data-bus-label="B16"><rect x="112" y="537" width="306" height="36" rx="4" fill="#f8faff"/><text x="120" y="565" class="wire-label" style="fill:#92400e">B16 · SYS → REG_MAP</text></g>
 <text x="80" y="2080" class="sub">圆点表示分支连接；跨线弧表示交叉不连接。CTRL / SA 原有接口与数据流保持不变。</text>
 <rect x="0" y="2160" width="4400" height="10000" fill="white"/><text x="80" y="2230" class="title">全部具名连线 · SIGNAL EXPANSION</text><text x="80" y="2278" class="sub">每个 B 编号对应上方拓扑；信号宽度按当前 RTL 默认参数计算。完整逐端口映射另见接口表。</text>
-<g data-netgroup="system"><rect x="80" y="2360" width="1360" height="780" rx="10" fill="#7c3aed" fill-opacity="0.055" stroke="#7c3aed" stroke-opacity="0.5"/><rect x="80" y="2360" width="1360" height="65" rx="10" fill="#7c3aed"/><text x="98" y="2405" class="route-title" style="fill:white">B00 · 时钟 / 复位 / DFT</text>
-<text x="98" y="2467" class="sig" data-net="ahb_clk">N001  ahb_clk [1]</text>
-<text x="98" y="2495" class="tiny">EXT → ahb_slave, reg_list.hclk, tpu_crg</text>
-<text x="98" y="2535" class="sig" data-net="ahb_rst_n">N002  ahb_rst_n [1]</text>
-<text x="98" y="2563" class="tiny">TOP逻辑 → ahb_slave.tpu_rst_n, reg_list.hrstn</text>
-<text x="98" y="2603" class="sig" data-net="dft_glb_gt_se">N003  dft_glb_gt_se [1]</text>
-<text x="98" y="2631" class="tiny">EXT → tpu_crg</text>
-<text x="98" y="2671" class="sig" data-net="dft_mode">N004  dft_mode [1]</text>
-<text x="98" y="2699" class="tiny">EXT → tpu_crg</text>
-<text x="98" y="2739" class="sig" data-net="dft_lgc_rst_n">N005  dft_lgc_rst_n [1]</text>
-<text x="98" y="2767" class="tiny">EXT → tpu_crg</text>
-<text x="98" y="2807" class="sig" data-net="sys_clk">N006  sys_clk [1]</text>
-<text x="98" y="2835" class="tiny">EXT → tpu_crg</text>
-<text x="98" y="2875" class="sig" data-net="sys_rst_n">N007  sys_rst_n [1]</text>
-<text x="98" y="2903" class="tiny">EXT → tpu_crg</text>
-<text x="98" y="2943" class="sig" data-net="sys_ckg">N008  sys_ckg [1]</text>
-<text x="98" y="2971" class="tiny">tpu_crg → axi2fifo, fifo_in, tpu_ctrl, sa_top, fifo_out, fifo2axi</text>
-<text x="98" y="3011" class="sig" data-net="pe_ckg">N009  pe_ckg [64]</text>
-<text x="98" y="3039" class="tiny">tpu_crg → sa_top</text>
-<text x="98" y="3079" class="sig" data-net="tpu_rst_n">N010  tpu_rst_n [1]</text>
-<text x="98" y="3107" class="tiny">tpu_crg → axi2fifo, fifo_in, tpu_ctrl, sa_top, fifo_out, fifo2axi</text>
+<style>[data-netgroup] .route-title{font-size:40px}[data-netgroup] .sig{font-size:38px;font-weight:600}[data-netgroup] .tiny{font-size:30px;fill:#526780}</style>
+<g data-netgroup="system"><rect x="80" y="2360" width="2080" height="1226" rx="10" fill="#7c3aed" fill-opacity="0.055" stroke="#7c3aed" stroke-opacity="0.5"/><rect x="80" y="2360" width="2080" height="94" rx="10" fill="#7c3aed"/><text x="116" y="2425" class="route-title" style="fill:white">B00 · 时钟 / 复位 / DFT</text>
+<text x="116" y="2510" class="sig" data-net="ahb_clk">N001  ahb_clk [1]</text>
+<text x="116" y="2554" class="tiny">EXT → ahb_slave, reg_list.hclk, tpu_crg</text>
+<text x="116" y="2618" class="sig" data-net="ahb_rst_n">N002  ahb_rst_n [1]</text>
+<text x="116" y="2662" class="tiny">TOP逻辑 → ahb_slave.tpu_rst_n, reg_list.hrstn</text>
+<text x="116" y="2726" class="sig" data-net="dft_glb_gt_se">N003  dft_glb_gt_se [1]</text>
+<text x="116" y="2770" class="tiny">EXT → tpu_crg</text>
+<text x="116" y="2834" class="sig" data-net="dft_mode">N004  dft_mode [1]</text>
+<text x="116" y="2878" class="tiny">EXT → tpu_crg</text>
+<text x="116" y="2942" class="sig" data-net="dft_lgc_rst_n">N005  dft_lgc_rst_n [1]</text>
+<text x="116" y="2986" class="tiny">EXT → tpu_crg</text>
+<text x="116" y="3050" class="sig" data-net="sys_clk">N006  sys_clk [1]</text>
+<text x="116" y="3094" class="tiny">EXT → tpu_crg</text>
+<text x="116" y="3158" class="sig" data-net="sys_rst_n">N007  sys_rst_n [1]</text>
+<text x="116" y="3202" class="tiny">EXT → tpu_crg</text>
+<text x="116" y="3266" class="sig" data-net="sys_ckg">N008  sys_ckg [1]</text>
+<text x="116" y="3310" class="tiny">tpu_crg → axi2fifo, fifo_in, tpu_ctrl, sa_top, fifo_out, fifo2axi</text>
+<text x="116" y="3374" class="sig" data-net="pe_ckg">N009  pe_ckg [64]</text>
+<text x="116" y="3418" class="tiny">tpu_crg → sa_top</text>
+<text x="116" y="3482" class="sig" data-net="tpu_rst_n">N010  tpu_rst_n [1]</text>
+<text x="116" y="3526" class="tiny">tpu_crg → axi2fifo, fifo_in, tpu_ctrl, sa_top, fifo_out, fifo2axi</text>
 </g>
-<g data-netgroup="staticcfg"><rect x="80" y="3172" width="1360" height="304" rx="10" fill="#a16207" fill-opacity="0.055" stroke="#a16207" stroke-opacity="0.5"/><rect x="80" y="3172" width="1360" height="65" rx="10" fill="#a16207"/><text x="98" y="3217" class="route-title" style="fill:white">B05 · 静态尺寸 / 精度配置</text>
-<text x="98" y="3279" class="sig" data-net="cpu_h_size">N033  cpu_h_size [4]</text>
-<text x="98" y="3307" class="tiny">reg_list → tpu_crg, tpu_ctrl, sa_top</text>
-<text x="98" y="3347" class="sig" data-net="cpu_w_size">N034  cpu_w_size [4]</text>
-<text x="98" y="3375" class="tiny">reg_list → tpu_crg, tpu_ctrl, sa_top</text>
-<text x="98" y="3415" class="sig" data-net="cpu_cpt_mode">N035  cpu_cpt_mode [2]</text>
-<text x="98" y="3443" class="tiny">reg_list → tpu_ctrl, sa_top, fifo2axi</text>
+<g data-netgroup="regbus"><rect x="80" y="3642" width="2080" height="686" rx="10" fill="#475569" fill-opacity="0.055" stroke="#475569" stroke-opacity="0.5"/><rect x="80" y="3642" width="2080" height="94" rx="10" fill="#475569"/><text x="116" y="3707" class="route-title" style="fill:white">B02 · AHB_SLAVE ↔ REG_MAP</text>
+<text x="116" y="3792" class="sig" data-net="ahb_rd_data">N023  ahb_rd_data [32]</text>
+<text x="116" y="3836" class="tiny">reg_list → ahb_slave</text>
+<text x="116" y="3900" class="sig" data-net="ahb_addr">N024  ahb_addr [10]</text>
+<text x="116" y="3944" class="tiny">ahb_slave → reg_list</text>
+<text x="116" y="4008" class="sig" data-net="ahb_wr_data">N025  ahb_wr_data [32]</text>
+<text x="116" y="4052" class="tiny">ahb_slave → reg_list</text>
+<text x="116" y="4116" class="sig" data-net="ahb_wr_en">N026  ahb_wr_en [1]</text>
+<text x="116" y="4160" class="tiny">ahb_slave → reg_list</text>
+<text x="116" y="4224" class="sig" data-net="ahb_rd_en">N027  ahb_rd_en [1]</text>
+<text x="116" y="4268" class="tiny">ahb_slave → reg_list</text>
 </g>
-<g data-netgroup="rx"><rect x="80" y="3508" width="1360" height="712" rx="10" fill="#2563eb" fill-opacity="0.055" stroke="#2563eb" stroke-opacity="0.5"/><rect x="80" y="3508" width="1360" height="65" rx="10" fill="#2563eb"/><text x="98" y="3553" class="route-title" style="fill:white">B08 · AXI 输入边界 · rd_*</text>
-<text x="98" y="3615" class="sig" data-net="rd_tready">N041  rd_tready [1]</text>
-<text x="98" y="3643" class="tiny">axi2fifo → EXT</text>
-<text x="98" y="3683" class="sig" data-net="rd_tvalid">N042  rd_tvalid [1]</text>
-<text x="98" y="3711" class="tiny">EXT → axi2fifo</text>
-<text x="98" y="3751" class="sig" data-net="rd_tdata">N043  rd_tdata [512]</text>
-<text x="98" y="3779" class="tiny">EXT → axi2fifo</text>
-<text x="98" y="3819" class="sig" data-net="rd_tkeep">N044  rd_tkeep [64]</text>
-<text x="98" y="3847" class="tiny">EXT → axi2fifo</text>
-<text x="98" y="3887" class="sig" data-net="rd_tstrb">N045  rd_tstrb [64]</text>
-<text x="98" y="3915" class="tiny">EXT → axi2fifo</text>
-<text x="98" y="3955" class="sig" data-net="rd_tlast">N046  rd_tlast [1]</text>
-<text x="98" y="3983" class="tiny">EXT → axi2fifo</text>
-<text x="98" y="4023" class="sig" data-net="rd_tid">N047  rd_tid [1]</text>
-<text x="98" y="4051" class="tiny">EXT → axi2fifo</text>
-<text x="98" y="4091" class="sig" data-net="rd_tdest">N048  rd_tdest [1]</text>
-<text x="98" y="4119" class="tiny">EXT → axi2fifo</text>
-<text x="98" y="4159" class="sig" data-net="rd_tuser">N049  rd_tuser [1]</text>
-<text x="98" y="4187" class="tiny">EXT → axi2fifo</text>
+<g data-netgroup="taskcfg"><rect x="80" y="4384" width="2080" height="362" rx="10" fill="#ea580c" fill-opacity="0.055" stroke="#ea580c" stroke-opacity="0.5"/><rect x="80" y="4384" width="2080" height="94" rx="10" fill="#ea580c"/><text x="116" y="4449" class="route-title" style="fill:white">B04 · REG_MAP → CTRL</text>
+<text x="116" y="4534" class="sig" data-net="cpu_tpu_en">N031  cpu_tpu_en [1]</text>
+<text x="116" y="4578" class="tiny">reg_list → tpu_ctrl</text>
+<text x="116" y="4642" class="sig" data-net="cpu_tpu_start">N032  cpu_tpu_start [1]</text>
+<text x="116" y="4686" class="tiny">reg_list → tpu_ctrl</text>
 </g>
-<g data-netgroup="lastfeedback"><rect x="80" y="4252" width="1360" height="168" rx="10" fill="#dc2626" fill-opacity="0.055" stroke="#dc2626" stroke-opacity="0.5"/><rect x="80" y="4252" width="1360" height="65" rx="10" fill="#dc2626"/><text x="98" y="4297" class="route-title" style="fill:white">B13 · SA → CTRL · 完成反馈</text>
-<text x="98" y="4359" class="sig" data-net="sa_result_last">N064  sa_result_last [1]</text>
-<text x="98" y="4387" class="tiny">TOP逻辑 → tpu_ctrl.data_out_last</text>
+<g data-netgroup="weight"><rect x="80" y="4802" width="2080" height="470" rx="10" fill="#db2777" fill-opacity="0.055" stroke="#db2777" stroke-opacity="0.5"/><rect x="80" y="4802" width="2080" height="94" rx="10" fill="#db2777"/><text x="116" y="4867" class="route-title" style="fill:white">B06 · REG_MAP → SA 权重预装载</text>
+<text x="116" y="4952" class="sig" data-net="cpu_dat_in_b_sel">N036  cpu_dat_in_b_sel [4]</text>
+<text x="116" y="4996" class="tiny">reg_list → sa_top</text>
+<text x="116" y="5060" class="sig" data-net="cpu_dat_in_b_lock">N037  cpu_dat_in_b_lock [1]</text>
+<text x="116" y="5104" class="tiny">reg_list → sa_top</text>
+<text x="116" y="5168" class="sig" data-net="cpu_dat_in_b">N038  cpu_dat_in_b [512]</text>
+<text x="116" y="5212" class="tiny">reg_list → sa_top</text>
 </g>
-<g data-netgroup="status"><rect x="80" y="4452" width="1360" height="508" rx="10" fill="#92400e" fill-opacity="0.055" stroke="#92400e" stroke-opacity="0.5"/><rect x="80" y="4452" width="1360" height="65" rx="10" fill="#92400e"/><text x="98" y="4497" class="route-title" style="fill:white">B16 · SYS 状态 → AHB REG_MAP</text>
-<text x="98" y="4559" class="sig" data-net="rpt_active_size_sys">N078  rpt_active_size_sys [32]</text>
-<text x="98" y="4587" class="tiny">sa_top → reg_list.rpt_active_size</text>
-<text x="98" y="4627" class="sig" data-net="rpt_cpt_cyc_sys">N079  rpt_cpt_cyc_sys [32]</text>
-<text x="98" y="4655" class="tiny">fifo2axi → reg_list.rpt_cpt_cyc</text>
-<text x="98" y="4695" class="sig" data-net="rpt_dat_in_cnt_sys">N080  rpt_dat_in_cnt_sys [32]</text>
-<text x="98" y="4723" class="tiny">tpu_ctrl → reg_list.rpt_dat_in_cnt</text>
-<text x="98" y="4763" class="sig" data-net="rpt_error_sys">N081  rpt_error_sys [1]</text>
-<text x="98" y="4791" class="tiny">tpu_ctrl → reg_list.rpt_error</text>
-<text x="98" y="4831" class="sig" data-net="rpt_error_state_sys">N082  rpt_error_state_sys [3]</text>
-<text x="98" y="4859" class="tiny">tpu_ctrl → reg_list.rpt_error_state</text>
-<text x="98" y="4899" class="sig" data-net="compute_done_sys">N083  compute_done_sys [1]</text>
-<text x="98" y="4927" class="tiny">tpu_ctrl → reg_list.rpt_cpt_done</text>
+<g data-netgroup="rx"><rect x="80" y="5328" width="2080" height="1118" rx="10" fill="#2563eb" fill-opacity="0.055" stroke="#2563eb" stroke-opacity="0.5"/><rect x="80" y="5328" width="2080" height="94" rx="10" fill="#2563eb"/><text x="116" y="5393" class="route-title" style="fill:white">B08 · AXI 输入边界 · rd_*</text>
+<text x="116" y="5478" class="sig" data-net="rd_tready">N041  rd_tready [1]</text>
+<text x="116" y="5522" class="tiny">axi2fifo → EXT</text>
+<text x="116" y="5586" class="sig" data-net="rd_tvalid">N042  rd_tvalid [1]</text>
+<text x="116" y="5630" class="tiny">EXT → axi2fifo</text>
+<text x="116" y="5694" class="sig" data-net="rd_tdata">N043  rd_tdata [512]</text>
+<text x="116" y="5738" class="tiny">EXT → axi2fifo</text>
+<text x="116" y="5802" class="sig" data-net="rd_tkeep">N044  rd_tkeep [64]</text>
+<text x="116" y="5846" class="tiny">EXT → axi2fifo</text>
+<text x="116" y="5910" class="sig" data-net="rd_tstrb">N045  rd_tstrb [64]</text>
+<text x="116" y="5954" class="tiny">EXT → axi2fifo</text>
+<text x="116" y="6018" class="sig" data-net="rd_tlast">N046  rd_tlast [1]</text>
+<text x="116" y="6062" class="tiny">EXT → axi2fifo</text>
+<text x="116" y="6126" class="sig" data-net="rd_tid">N047  rd_tid [1]</text>
+<text x="116" y="6170" class="tiny">EXT → axi2fifo</text>
+<text x="116" y="6234" class="sig" data-net="rd_tdest">N048  rd_tdest [1]</text>
+<text x="116" y="6278" class="tiny">EXT → axi2fifo</text>
+<text x="116" y="6342" class="sig" data-net="rd_tuser">N049  rd_tuser [1]</text>
+<text x="116" y="6386" class="tiny">EXT → axi2fifo</text>
 </g>
-<g data-netgroup="ahb"><rect x="1520" y="2360" width="1360" height="916" rx="10" fill="#2563eb" fill-opacity="0.055" stroke="#2563eb" stroke-opacity="0.5"/><rect x="1520" y="2360" width="1360" height="65" rx="10" fill="#2563eb"/><text x="1538" y="2405" class="route-title" style="fill:white">B01 · CPU · AHB-Lite 边界</text>
-<text x="1538" y="2467" class="sig" data-net="hsel">N011  hsel [1]</text>
-<text x="1538" y="2495" class="tiny">EXT → ahb_slave</text>
-<text x="1538" y="2535" class="sig" data-net="hsize">N012  hsize [3]</text>
-<text x="1538" y="2563" class="tiny">EXT → ahb_slave</text>
-<text x="1538" y="2603" class="sig" data-net="haddr">N013  haddr [32]</text>
-<text x="1538" y="2631" class="tiny">EXT → ahb_slave</text>
-<text x="1538" y="2671" class="sig" data-net="hburst">N014  hburst [3]</text>
-<text x="1538" y="2699" class="tiny">EXT → ahb_slave</text>
-<text x="1538" y="2739" class="sig" data-net="htrans">N015  htrans [2]</text>
-<text x="1538" y="2767" class="tiny">EXT → ahb_slave</text>
-<text x="1538" y="2807" class="sig" data-net="hwrite">N016  hwrite [1]</text>
-<text x="1538" y="2835" class="tiny">EXT → ahb_slave</text>
-<text x="1538" y="2875" class="sig" data-net="hwdata">N017  hwdata [32]</text>
-<text x="1538" y="2903" class="tiny">EXT → ahb_slave</text>
-<text x="1538" y="2943" class="sig" data-net="hreadyin">N018  hreadyin [1]</text>
-<text x="1538" y="2971" class="tiny">EXT → ahb_slave</text>
-<text x="1538" y="3011" class="sig" data-net="hprot">N019  hprot [4]</text>
-<text x="1538" y="3039" class="tiny">EXT → ahb_slave</text>
-<text x="1538" y="3079" class="sig" data-net="hready">N020  hready [1]</text>
-<text x="1538" y="3107" class="tiny">ahb_slave → EXT</text>
-<text x="1538" y="3147" class="sig" data-net="hrdata">N021  hrdata [32]</text>
-<text x="1538" y="3175" class="tiny">ahb_slave → EXT</text>
-<text x="1538" y="3215" class="sig" data-net="hresp">N022  hresp [1]</text>
-<text x="1538" y="3243" class="tiny">ahb_slave → EXT</text>
+<g data-netgroup="skew"><rect x="80" y="6502" width="2080" height="470" rx="10" fill="#9333ea" fill-opacity="0.055" stroke="#9333ea" stroke-opacity="0.5"/><rect x="80" y="6502" width="2080" height="94" rx="10" fill="#9333ea"/><text x="116" y="6567" class="route-title" style="fill:white">B11 · CTRL → SA · Skew 数据</text>
+<text x="116" y="6652" class="sig" data-net="dat_in_a">N058  dat_in_a [512]</text>
+<text x="116" y="6696" class="tiny">tpu_ctrl → sa_top</text>
+<text x="116" y="6760" class="sig" data-net="dat_in_vld">N059  dat_in_vld [1]</text>
+<text x="116" y="6804" class="tiny">tpu_ctrl → sa_top</text>
+<text x="116" y="6868" class="sig" data-net="dat_in_last">N060  dat_in_last [1]</text>
+<text x="116" y="6912" class="tiny">tpu_ctrl → sa_top</text>
 </g>
-<g data-netgroup="weight"><rect x="1520" y="3308" width="1360" height="304" rx="10" fill="#db2777" fill-opacity="0.055" stroke="#db2777" stroke-opacity="0.5"/><rect x="1520" y="3308" width="1360" height="65" rx="10" fill="#db2777"/><text x="1538" y="3353" class="route-title" style="fill:white">B06 · REG_MAP → SA 权重预装载</text>
-<text x="1538" y="3415" class="sig" data-net="cpu_dat_in_b_sel">N036  cpu_dat_in_b_sel [4]</text>
-<text x="1538" y="3443" class="tiny">reg_list → sa_top</text>
-<text x="1538" y="3483" class="sig" data-net="cpu_dat_in_b_lock">N037  cpu_dat_in_b_lock [1]</text>
-<text x="1538" y="3511" class="tiny">reg_list → sa_top</text>
-<text x="1538" y="3551" class="sig" data-net="cpu_dat_in_b">N038  cpu_dat_in_b [512]</text>
-<text x="1538" y="3579" class="tiny">reg_list → sa_top</text>
+<g data-netgroup="lastfeedback"><rect x="80" y="7028" width="2080" height="254" rx="10" fill="#dc2626" fill-opacity="0.055" stroke="#dc2626" stroke-opacity="0.5"/><rect x="80" y="7028" width="2080" height="94" rx="10" fill="#dc2626"/><text x="116" y="7093" class="route-title" style="fill:white">B13 · SA → CTRL · 完成反馈</text>
+<text x="116" y="7178" class="sig" data-net="sa_result_last">N064  sa_result_last [1]</text>
+<text x="116" y="7222" class="tiny">TOP逻辑 → tpu_ctrl.data_out_last</text>
 </g>
-<g data-netgroup="rxwrite"><rect x="1520" y="3644" width="1360" height="372" rx="10" fill="#ea580c" fill-opacity="0.055" stroke="#ea580c" stroke-opacity="0.5"/><rect x="1520" y="3644" width="1360" height="65" rx="10" fill="#ea580c"/><text x="1538" y="3689" class="route-title" style="fill:white">B09 · axi2fifo ↔ FIFO_IN</text>
-<text x="1538" y="3751" class="sig" data-net="fifo_in_we">N050  fifo_in_we [1]</text>
-<text x="1538" y="3779" class="tiny">axi2fifo → fifo_in</text>
-<text x="1538" y="3819" class="sig" data-net="fifo_in_pre_full">N051  fifo_in_pre_full [1]</text>
-<text x="1538" y="3847" class="tiny">fifo_in → axi2fifo</text>
-<text x="1538" y="3887" class="sig" data-net="fifo_in_wdata">N052  fifo_in_wdata [512]</text>
-<text x="1538" y="3915" class="tiny">axi2fifo → fifo_in</text>
-<text x="1538" y="3955" class="sig" data-net="rd_dat_last">N053  rd_dat_last [1]</text>
-<text x="1538" y="3983" class="tiny">axi2fifo → fifo_in</text>
+<g data-netgroup="tx"><rect x="80" y="7338" width="2080" height="1118" rx="10" fill="#334155" fill-opacity="0.055" stroke="#334155" stroke-opacity="0.5"/><rect x="80" y="7338" width="2080" height="94" rx="10" fill="#334155"/><text x="116" y="7403" class="route-title" style="fill:white">B15 · AXI 输出边界 · wr_*</text>
+<text x="116" y="7488" class="sig" data-net="wr_tready">N069  wr_tready [1]</text>
+<text x="116" y="7532" class="tiny">EXT → fifo2axi</text>
+<text x="116" y="7596" class="sig" data-net="wr_tvalid">N070  wr_tvalid [1]</text>
+<text x="116" y="7640" class="tiny">fifo2axi → EXT</text>
+<text x="116" y="7704" class="sig" data-net="wr_tdata">N071  wr_tdata [512]</text>
+<text x="116" y="7748" class="tiny">fifo2axi → EXT</text>
+<text x="116" y="7812" class="sig" data-net="wr_tkeep">N072  wr_tkeep [64]</text>
+<text x="116" y="7856" class="tiny">fifo2axi → EXT</text>
+<text x="116" y="7920" class="sig" data-net="wr_tstrb">N073  wr_tstrb [64]</text>
+<text x="116" y="7964" class="tiny">fifo2axi → EXT</text>
+<text x="116" y="8028" class="sig" data-net="wr_tlast">N074  wr_tlast [1]</text>
+<text x="116" y="8072" class="tiny">fifo2axi → EXT</text>
+<text x="116" y="8136" class="sig" data-net="wr_tid">N075  wr_tid [1]</text>
+<text x="116" y="8180" class="tiny">fifo2axi → EXT</text>
+<text x="116" y="8244" class="sig" data-net="wr_tdest">N076  wr_tdest [1]</text>
+<text x="116" y="8288" class="tiny">fifo2axi → EXT</text>
+<text x="116" y="8352" class="sig" data-net="wr_tuser">N077  wr_tuser [1]</text>
+<text x="116" y="8396" class="tiny">fifo2axi → EXT</text>
 </g>
-<g data-netgroup="skew"><rect x="1520" y="4048" width="1360" height="304" rx="10" fill="#9333ea" fill-opacity="0.055" stroke="#9333ea" stroke-opacity="0.5"/><rect x="1520" y="4048" width="1360" height="65" rx="10" fill="#9333ea"/><text x="1538" y="4093" class="route-title" style="fill:white">B11 · CTRL → SA · Skew 数据</text>
-<text x="1538" y="4155" class="sig" data-net="dat_in_a">N058  dat_in_a [512]</text>
-<text x="1538" y="4183" class="tiny">tpu_ctrl → sa_top</text>
-<text x="1538" y="4223" class="sig" data-net="dat_in_vld">N059  dat_in_vld [1]</text>
-<text x="1538" y="4251" class="tiny">tpu_ctrl → sa_top</text>
-<text x="1538" y="4291" class="sig" data-net="dat_in_last">N060  dat_in_last [1]</text>
-<text x="1538" y="4319" class="tiny">tpu_ctrl → sa_top</text>
+<g data-netgroup="ahb"><rect x="2240" y="2360" width="2080" height="1442" rx="10" fill="#2563eb" fill-opacity="0.055" stroke="#2563eb" stroke-opacity="0.5"/><rect x="2240" y="2360" width="2080" height="94" rx="10" fill="#2563eb"/><text x="2276" y="2425" class="route-title" style="fill:white">B01 · CPU · AHB-Lite 边界</text>
+<text x="2276" y="2510" class="sig" data-net="hsel">N011  hsel [1]</text>
+<text x="2276" y="2554" class="tiny">EXT → ahb_slave</text>
+<text x="2276" y="2618" class="sig" data-net="hsize">N012  hsize [3]</text>
+<text x="2276" y="2662" class="tiny">EXT → ahb_slave</text>
+<text x="2276" y="2726" class="sig" data-net="haddr">N013  haddr [32]</text>
+<text x="2276" y="2770" class="tiny">EXT → ahb_slave</text>
+<text x="2276" y="2834" class="sig" data-net="hburst">N014  hburst [3]</text>
+<text x="2276" y="2878" class="tiny">EXT → ahb_slave</text>
+<text x="2276" y="2942" class="sig" data-net="htrans">N015  htrans [2]</text>
+<text x="2276" y="2986" class="tiny">EXT → ahb_slave</text>
+<text x="2276" y="3050" class="sig" data-net="hwrite">N016  hwrite [1]</text>
+<text x="2276" y="3094" class="tiny">EXT → ahb_slave</text>
+<text x="2276" y="3158" class="sig" data-net="hwdata">N017  hwdata [32]</text>
+<text x="2276" y="3202" class="tiny">EXT → ahb_slave</text>
+<text x="2276" y="3266" class="sig" data-net="hreadyin">N018  hreadyin [1]</text>
+<text x="2276" y="3310" class="tiny">EXT → ahb_slave</text>
+<text x="2276" y="3374" class="sig" data-net="hprot">N019  hprot [4]</text>
+<text x="2276" y="3418" class="tiny">EXT → ahb_slave</text>
+<text x="2276" y="3482" class="sig" data-net="hready">N020  hready [1]</text>
+<text x="2276" y="3526" class="tiny">ahb_slave → EXT</text>
+<text x="2276" y="3590" class="sig" data-net="hrdata">N021  hrdata [32]</text>
+<text x="2276" y="3634" class="tiny">ahb_slave → EXT</text>
+<text x="2276" y="3698" class="sig" data-net="hresp">N022  hresp [1]</text>
+<text x="2276" y="3742" class="tiny">ahb_slave → EXT</text>
 </g>
-<g data-netgroup="txread"><rect x="1520" y="4384" width="1360" height="372" rx="10" fill="#db2777" fill-opacity="0.055" stroke="#db2777" stroke-opacity="0.5"/><rect x="1520" y="4384" width="1360" height="65" rx="10" fill="#db2777"/><text x="1538" y="4429" class="route-title" style="fill:white">B14 · FIFO_OUT ↔ fifo2axi</text>
-<text x="1538" y="4491" class="sig" data-net="fifo_out_re">N065  fifo_out_re [1]</text>
-<text x="1538" y="4519" class="tiny">fifo2axi → fifo_out</text>
-<text x="1538" y="4559" class="sig" data-net="fifo_out_empty">N066  fifo_out_empty [1]</text>
-<text x="1538" y="4587" class="tiny">fifo_out → fifo2axi</text>
-<text x="1538" y="4627" class="sig" data-net="fifo_out_rdata">N067  fifo_out_rdata [512]</text>
-<text x="1538" y="4655" class="tiny">fifo_out → fifo2axi</text>
-<text x="1538" y="4695" class="sig" data-net="fifo_out_head_last">N068  fifo_out_head_last [1]</text>
-<text x="1538" y="4723" class="tiny">fifo_out → fifo2axi.data_out_last</text>
+<g data-netgroup="crgcfg"><rect x="2240" y="3858" width="2080" height="470" rx="10" fill="#7c3aed" fill-opacity="0.055" stroke="#7c3aed" stroke-opacity="0.5"/><rect x="2240" y="3858" width="2080" height="94" rx="10" fill="#7c3aed"/><text x="2276" y="3923" class="route-title" style="fill:white">B03 · REG_MAP → CRG</text>
+<text x="2276" y="4008" class="sig" data-net="cpu_sw_rst">N028  cpu_sw_rst [1]</text>
+<text x="2276" y="4052" class="tiny">reg_list → tpu_crg.cpu_tpu_sw_rst</text>
+<text x="2276" y="4116" class="sig" data-net="cpu_tpu_crg_bypass">N029  cpu_tpu_crg_bypass [1]</text>
+<text x="2276" y="4160" class="tiny">reg_list → tpu_crg</text>
+<text x="2276" y="4224" class="sig" data-net="cpu_tpu_crg_en">N030  cpu_tpu_crg_en [1]</text>
+<text x="2276" y="4268" class="tiny">reg_list → tpu_crg</text>
 </g>
-<g data-netgroup="regbus"><rect x="2960" y="2360" width="1360" height="440" rx="10" fill="#475569" fill-opacity="0.055" stroke="#475569" stroke-opacity="0.5"/><rect x="2960" y="2360" width="1360" height="65" rx="10" fill="#475569"/><text x="2978" y="2405" class="route-title" style="fill:white">B02 · AHB_SLAVE ↔ REG_MAP</text>
-<text x="2978" y="2467" class="sig" data-net="ahb_rd_data">N023  ahb_rd_data [32]</text>
-<text x="2978" y="2495" class="tiny">reg_list → ahb_slave</text>
-<text x="2978" y="2535" class="sig" data-net="ahb_addr">N024  ahb_addr [10]</text>
-<text x="2978" y="2563" class="tiny">ahb_slave → reg_list</text>
-<text x="2978" y="2603" class="sig" data-net="ahb_wr_data">N025  ahb_wr_data [32]</text>
-<text x="2978" y="2631" class="tiny">ahb_slave → reg_list</text>
-<text x="2978" y="2671" class="sig" data-net="ahb_wr_en">N026  ahb_wr_en [1]</text>
-<text x="2978" y="2699" class="tiny">ahb_slave → reg_list</text>
-<text x="2978" y="2739" class="sig" data-net="ahb_rd_en">N027  ahb_rd_en [1]</text>
-<text x="2978" y="2767" class="tiny">ahb_slave → reg_list</text>
+<g data-netgroup="staticcfg"><rect x="2240" y="4384" width="2080" height="470" rx="10" fill="#a16207" fill-opacity="0.055" stroke="#a16207" stroke-opacity="0.5"/><rect x="2240" y="4384" width="2080" height="94" rx="10" fill="#a16207"/><text x="2276" y="4449" class="route-title" style="fill:white">B05 · 静态尺寸 / 精度配置</text>
+<text x="2276" y="4534" class="sig" data-net="cpu_h_size">N033  cpu_h_size [4]</text>
+<text x="2276" y="4578" class="tiny">reg_list → tpu_crg, tpu_ctrl, sa_top</text>
+<text x="2276" y="4642" class="sig" data-net="cpu_w_size">N034  cpu_w_size [4]</text>
+<text x="2276" y="4686" class="tiny">reg_list → tpu_crg, tpu_ctrl, sa_top</text>
+<text x="2276" y="4750" class="sig" data-net="cpu_cpt_mode">N035  cpu_cpt_mode [2]</text>
+<text x="2276" y="4794" class="tiny">reg_list → tpu_ctrl, sa_top, fifo2axi</text>
 </g>
-<g data-netgroup="crgcfg"><rect x="2960" y="2832" width="1360" height="304" rx="10" fill="#7c3aed" fill-opacity="0.055" stroke="#7c3aed" stroke-opacity="0.5"/><rect x="2960" y="2832" width="1360" height="65" rx="10" fill="#7c3aed"/><text x="2978" y="2877" class="route-title" style="fill:white">B03 · REG_MAP → CRG</text>
-<text x="2978" y="2939" class="sig" data-net="cpu_sw_rst">N028  cpu_sw_rst [1]</text>
-<text x="2978" y="2967" class="tiny">reg_list → tpu_crg.cpu_tpu_sw_rst</text>
-<text x="2978" y="3007" class="sig" data-net="cpu_tpu_crg_bypass">N029  cpu_tpu_crg_bypass [1]</text>
-<text x="2978" y="3035" class="tiny">reg_list → tpu_crg</text>
-<text x="2978" y="3075" class="sig" data-net="cpu_tpu_crg_en">N030  cpu_tpu_crg_en [1]</text>
-<text x="2978" y="3103" class="tiny">reg_list → tpu_crg</text>
+<g data-netgroup="sync"><rect x="2240" y="4910" width="2080" height="362" rx="10" fill="#0f766e" fill-opacity="0.055" stroke="#0f766e" stroke-opacity="0.5"/><rect x="2240" y="4910" width="2080" height="94" rx="10" fill="#0f766e"/><text x="2276" y="4975" class="route-title" style="fill:white">B07 · CTRL → AXI / SA 同步控制</text>
+<text x="2276" y="5060" class="sig" data-net="cpu_tpu_en_sync">N039  cpu_tpu_en_sync [1]</text>
+<text x="2276" y="5104" class="tiny">tpu_ctrl → axi2fifo, sa_top, fifo2axi</text>
+<text x="2276" y="5168" class="sig" data-net="cpu_tpu_start_sync">N040  cpu_tpu_start_sync [1]</text>
+<text x="2276" y="5212" class="tiny">tpu_ctrl → axi2fifo, sa_top, fifo2axi</text>
 </g>
-<g data-netgroup="taskcfg"><rect x="2960" y="3168" width="1360" height="236" rx="10" fill="#ea580c" fill-opacity="0.055" stroke="#ea580c" stroke-opacity="0.5"/><rect x="2960" y="3168" width="1360" height="65" rx="10" fill="#ea580c"/><text x="2978" y="3213" class="route-title" style="fill:white">B04 · REG_MAP → CTRL</text>
-<text x="2978" y="3275" class="sig" data-net="cpu_tpu_en">N031  cpu_tpu_en [1]</text>
-<text x="2978" y="3303" class="tiny">reg_list → tpu_ctrl</text>
-<text x="2978" y="3343" class="sig" data-net="cpu_tpu_start">N032  cpu_tpu_start [1]</text>
-<text x="2978" y="3371" class="tiny">reg_list → tpu_ctrl</text>
+<g data-netgroup="rxwrite"><rect x="2240" y="5328" width="2080" height="578" rx="10" fill="#ea580c" fill-opacity="0.055" stroke="#ea580c" stroke-opacity="0.5"/><rect x="2240" y="5328" width="2080" height="94" rx="10" fill="#ea580c"/><text x="2276" y="5393" class="route-title" style="fill:white">B09 · axi2fifo ↔ FIFO_IN</text>
+<text x="2276" y="5478" class="sig" data-net="fifo_in_we">N050  fifo_in_we [1]</text>
+<text x="2276" y="5522" class="tiny">axi2fifo → fifo_in</text>
+<text x="2276" y="5586" class="sig" data-net="fifo_in_pre_full">N051  fifo_in_pre_full [1]</text>
+<text x="2276" y="5630" class="tiny">fifo_in → axi2fifo</text>
+<text x="2276" y="5694" class="sig" data-net="fifo_in_wdata">N052  fifo_in_wdata [512]</text>
+<text x="2276" y="5738" class="tiny">axi2fifo → fifo_in</text>
+<text x="2276" y="5802" class="sig" data-net="rd_dat_last">N053  rd_dat_last [1]</text>
+<text x="2276" y="5846" class="tiny">axi2fifo → fifo_in</text>
 </g>
-<g data-netgroup="sync"><rect x="2960" y="3436" width="1360" height="236" rx="10" fill="#0f766e" fill-opacity="0.055" stroke="#0f766e" stroke-opacity="0.5"/><rect x="2960" y="3436" width="1360" height="65" rx="10" fill="#0f766e"/><text x="2978" y="3481" class="route-title" style="fill:white">B07 · CTRL → AXI / SA 同步控制</text>
-<text x="2978" y="3543" class="sig" data-net="cpu_tpu_en_sync">N039  cpu_tpu_en_sync [1]</text>
-<text x="2978" y="3571" class="tiny">tpu_ctrl → axi2fifo, sa_top, fifo2axi</text>
-<text x="2978" y="3611" class="sig" data-net="cpu_tpu_start_sync">N040  cpu_tpu_start_sync [1]</text>
-<text x="2978" y="3639" class="tiny">tpu_ctrl → axi2fifo, sa_top, fifo2axi</text>
+<g data-netgroup="rxread"><rect x="2240" y="5962" width="2080" height="578" rx="10" fill="#0f766e" fill-opacity="0.055" stroke="#0f766e" stroke-opacity="0.5"/><rect x="2240" y="5962" width="2080" height="94" rx="10" fill="#0f766e"/><text x="2276" y="6027" class="route-title" style="fill:white">B10 · FIFO_IN ↔ CTRL</text>
+<text x="2276" y="6112" class="sig" data-net="fifo_in_re">N054  fifo_in_re [1]</text>
+<text x="2276" y="6156" class="tiny">tpu_ctrl → fifo_in</text>
+<text x="2276" y="6220" class="sig" data-net="fifo_empty">N055  fifo_empty [1]</text>
+<text x="2276" y="6264" class="tiny">fifo_in → tpu_ctrl</text>
+<text x="2276" y="6328" class="sig" data-net="fifo_in_rdata">N056  fifo_in_rdata [512]</text>
+<text x="2276" y="6372" class="tiny">fifo_in → tpu_ctrl</text>
+<text x="2276" y="6436" class="sig" data-net="fifo_in_rd_dat_last">N057  fifo_in_rd_dat_last [1]</text>
+<text x="2276" y="6480" class="tiny">fifo_in → tpu_ctrl</text>
 </g>
-<g data-netgroup="rxread"><rect x="2960" y="3704" width="1360" height="372" rx="10" fill="#0f766e" fill-opacity="0.055" stroke="#0f766e" stroke-opacity="0.5"/><rect x="2960" y="3704" width="1360" height="65" rx="10" fill="#0f766e"/><text x="2978" y="3749" class="route-title" style="fill:white">B10 · FIFO_IN ↔ CTRL</text>
-<text x="2978" y="3811" class="sig" data-net="fifo_in_re">N054  fifo_in_re [1]</text>
-<text x="2978" y="3839" class="tiny">tpu_ctrl → fifo_in</text>
-<text x="2978" y="3879" class="sig" data-net="fifo_empty">N055  fifo_empty [1]</text>
-<text x="2978" y="3907" class="tiny">fifo_in → tpu_ctrl</text>
-<text x="2978" y="3947" class="sig" data-net="fifo_in_rdata">N056  fifo_in_rdata [512]</text>
-<text x="2978" y="3975" class="tiny">fifo_in → tpu_ctrl</text>
-<text x="2978" y="4015" class="sig" data-net="fifo_in_rd_dat_last">N057  fifo_in_rd_dat_last [1]</text>
-<text x="2978" y="4043" class="tiny">fifo_in → tpu_ctrl</text>
+<g data-netgroup="result"><rect x="2240" y="6596" width="2080" height="470" rx="10" fill="#16a34a" fill-opacity="0.055" stroke="#16a34a" stroke-opacity="0.5"/><rect x="2240" y="6596" width="2080" height="94" rx="10" fill="#16a34a"/><text x="2276" y="6661" class="route-title" style="fill:white">B12 · SA → FIFO_OUT</text>
+<text x="2276" y="6746" class="sig" data-net="dat_out">N061  dat_out [512]</text>
+<text x="2276" y="6790" class="tiny">sa_top → fifo_out.data_out</text>
+<text x="2276" y="6854" class="sig" data-net="dat_out_vld">N062  dat_out_vld [1]</text>
+<text x="2276" y="6898" class="tiny">sa_top → fifo_out</text>
+<text x="2276" y="6962" class="sig" data-net="dat_out_last">N063  dat_out_last [1]</text>
+<text x="2276" y="7006" class="tiny">sa_top → fifo_out</text>
 </g>
-<g data-netgroup="result"><rect x="2960" y="4108" width="1360" height="304" rx="10" fill="#16a34a" fill-opacity="0.055" stroke="#16a34a" stroke-opacity="0.5"/><rect x="2960" y="4108" width="1360" height="65" rx="10" fill="#16a34a"/><text x="2978" y="4153" class="route-title" style="fill:white">B12 · SA → FIFO_OUT</text>
-<text x="2978" y="4215" class="sig" data-net="dat_out">N061  dat_out [512]</text>
-<text x="2978" y="4243" class="tiny">sa_top → fifo_out.data_out</text>
-<text x="2978" y="4283" class="sig" data-net="dat_out_vld">N062  dat_out_vld [1]</text>
-<text x="2978" y="4311" class="tiny">sa_top → fifo_out</text>
-<text x="2978" y="4351" class="sig" data-net="dat_out_last">N063  dat_out_last [1]</text>
-<text x="2978" y="4379" class="tiny">sa_top → fifo_out</text>
+<g data-netgroup="txread"><rect x="2240" y="7122" width="2080" height="578" rx="10" fill="#db2777" fill-opacity="0.055" stroke="#db2777" stroke-opacity="0.5"/><rect x="2240" y="7122" width="2080" height="94" rx="10" fill="#db2777"/><text x="2276" y="7187" class="route-title" style="fill:white">B14 · FIFO_OUT ↔ fifo2axi</text>
+<text x="2276" y="7272" class="sig" data-net="fifo_out_re">N065  fifo_out_re [1]</text>
+<text x="2276" y="7316" class="tiny">fifo2axi → fifo_out</text>
+<text x="2276" y="7380" class="sig" data-net="fifo_out_empty">N066  fifo_out_empty [1]</text>
+<text x="2276" y="7424" class="tiny">fifo_out → fifo2axi</text>
+<text x="2276" y="7488" class="sig" data-net="fifo_out_rdata">N067  fifo_out_rdata [512]</text>
+<text x="2276" y="7532" class="tiny">fifo_out → fifo2axi</text>
+<text x="2276" y="7596" class="sig" data-net="fifo_out_head_last">N068  fifo_out_head_last [1]</text>
+<text x="2276" y="7640" class="tiny">fifo_out → fifo2axi.data_out_last</text>
 </g>
-<g data-netgroup="tx"><rect x="2960" y="4444" width="1360" height="712" rx="10" fill="#334155" fill-opacity="0.055" stroke="#334155" stroke-opacity="0.5"/><rect x="2960" y="4444" width="1360" height="65" rx="10" fill="#334155"/><text x="2978" y="4489" class="route-title" style="fill:white">B15 · AXI 输出边界 · wr_*</text>
-<text x="2978" y="4551" class="sig" data-net="wr_tready">N069  wr_tready [1]</text>
-<text x="2978" y="4579" class="tiny">EXT → fifo2axi</text>
-<text x="2978" y="4619" class="sig" data-net="wr_tvalid">N070  wr_tvalid [1]</text>
-<text x="2978" y="4647" class="tiny">fifo2axi → EXT</text>
-<text x="2978" y="4687" class="sig" data-net="wr_tdata">N071  wr_tdata [512]</text>
-<text x="2978" y="4715" class="tiny">fifo2axi → EXT</text>
-<text x="2978" y="4755" class="sig" data-net="wr_tkeep">N072  wr_tkeep [64]</text>
-<text x="2978" y="4783" class="tiny">fifo2axi → EXT</text>
-<text x="2978" y="4823" class="sig" data-net="wr_tstrb">N073  wr_tstrb [64]</text>
-<text x="2978" y="4851" class="tiny">fifo2axi → EXT</text>
-<text x="2978" y="4891" class="sig" data-net="wr_tlast">N074  wr_tlast [1]</text>
-<text x="2978" y="4919" class="tiny">fifo2axi → EXT</text>
-<text x="2978" y="4959" class="sig" data-net="wr_tid">N075  wr_tid [1]</text>
-<text x="2978" y="4987" class="tiny">fifo2axi → EXT</text>
-<text x="2978" y="5027" class="sig" data-net="wr_tdest">N076  wr_tdest [1]</text>
-<text x="2978" y="5055" class="tiny">fifo2axi → EXT</text>
-<text x="2978" y="5095" class="sig" data-net="wr_tuser">N077  wr_tuser [1]</text>
-<text x="2978" y="5123" class="tiny">fifo2axi → EXT</text>
+<g data-netgroup="status"><rect x="2240" y="7756" width="2080" height="794" rx="10" fill="#92400e" fill-opacity="0.055" stroke="#92400e" stroke-opacity="0.5"/><rect x="2240" y="7756" width="2080" height="94" rx="10" fill="#92400e"/><text x="2276" y="7821" class="route-title" style="fill:white">B16 · SYS 状态 → AHB REG_MAP</text>
+<text x="2276" y="7906" class="sig" data-net="rpt_active_size_sys">N078  rpt_active_size_sys [32]</text>
+<text x="2276" y="7950" class="tiny">sa_top → reg_list.rpt_active_size</text>
+<text x="2276" y="8014" class="sig" data-net="rpt_cpt_cyc_sys">N079  rpt_cpt_cyc_sys [32]</text>
+<text x="2276" y="8058" class="tiny">fifo2axi → reg_list.rpt_cpt_cyc</text>
+<text x="2276" y="8122" class="sig" data-net="rpt_dat_in_cnt_sys">N080  rpt_dat_in_cnt_sys [32]</text>
+<text x="2276" y="8166" class="tiny">tpu_ctrl → reg_list.rpt_dat_in_cnt</text>
+<text x="2276" y="8230" class="sig" data-net="rpt_error_sys">N081  rpt_error_sys [1]</text>
+<text x="2276" y="8274" class="tiny">tpu_ctrl → reg_list.rpt_error</text>
+<text x="2276" y="8338" class="sig" data-net="rpt_error_state_sys">N082  rpt_error_state_sys [3]</text>
+<text x="2276" y="8382" class="tiny">tpu_ctrl → reg_list.rpt_error_state</text>
+<text x="2276" y="8446" class="sig" data-net="compute_done_sys">N083  compute_done_sys [1]</text>
+<text x="2276" y="8490" class="tiny">tpu_ctrl → reg_list.rpt_cpt_done</text>
 </g>
-<text x="64" y="5253" class="sub">83 条具名信号 · 186 个模块端口映射 · 36 个顶层接口 · 全部已列出</text></svg>
+<text x="64" y="8671" class="sub">83 条具名信号 · 186 个模块端口映射 · 36 个顶层接口 · 全部已列出</text></svg>
